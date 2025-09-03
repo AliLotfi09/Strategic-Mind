@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تست شخصیت سیاسی و استراتژیک</title>
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>تست شخصیت سیاسی و استراتژیک</h1>
+      <p>با پاسخ به سوالات، شبیه کدام رهبر تاریخی یا معاصر هستی؟ استراتژی، سیاست و دیدگاه‌هایت را بسنج و نتیجه را ببین!
+      </p>
+    </div>
+
+    <div class="progress-container">
+      <div class="progress-info">
+        <span id="progressText">سوال 1 از 15</span>
+        <span id="progressPercent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" id="progressBar"></div>
+      </div>
+    </div>
+
+    <div id="questionContainer" class="question-container"></div>
+
+    <div class="controls">
+      <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">
+        ← قبلی
+      </button>
+      <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+        بعدی →
+      </button>
+    </div>
+
+    <div class="result-container" id="resultContainer">
+      <div class="result-card">
+        <img class="leader-image" id="leaderImage" src="" alt="رهبر تاریخی">
+        <div class="leader-name" id="leaderName"></div>
+        <div class="leader-title" id="leaderTitle"></div>
+        <div class="leader-era" id="leaderEra"></div>
+
+        <div class="personality-match">
+          <div class="match-percentage" id="matchPercentage">0%</div>
+          <div>تطبیق شخصیت</div>
+        </div>
+
+        <div class="leader-description" id="leaderDescription"></div>
+
+        <div class="additional-info" id="additionalInfo"></div>
+
+        <div class="traits" id="traits"></div>
+
+        <div class="share-buttons">
+          <button class="share-btn share-copy" onclick="shareResult()">
+            📋 کپی نتیجه
+          </button>
+          <button class="share-btn share-twitter" onclick="shareOnTwitter()">
+            🐦 اشتراک در توییتر
+          </button>
+        </div>
+
+        <button class="btn btn-primary" onclick="restartTest()" style="margin-top:20px;">
+          🔄 تست مجدد
+        </button>
+
+        <div class="historical-note">
+          * این تست بر اساس تحلیل ویژگی‌های شخصیتی رهبران تاریخی طراحی شده و نتیجه آن صرفاً جنبه سرگرمی دارد.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script crossorigin src="/src/main.js"></script>
+</body>
+
+</html>
