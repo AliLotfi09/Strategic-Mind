@@ -1,257 +1,326 @@
 const questions = [
   {
-    question: "دیدگاه شما در مورد قدرت و رهبری چیست؟",
+    question: "در برابر فشار و تحریم‌های خارجی چه واکنشی نشان می‌دهید؟",
     options: [
-      { text: "قدرت باید در دست مردم باشد و از طریق انتخابات منتقل شود", traits: { democratic: 3, liberal: 2, populist: 1 } },
-      { text: "قدرت باید در دست یک رهبر قوی و با تجربه باشد", traits: { authoritarian: 3, conservative: 2, nationalist: 1 } },
-      { text: "قدرت باید بین نهادهای مختلف تقسیم شود", traits: { moderate: 3, democratic: 1, balanced: 2 } },
-      { text: "مهم نیست چه کسی قدرت دارد، مهم نتیجه‌کارش است", traits: { pragmatic: 3, moderate: 1, utilitarian: 2 } }
+      { text: "مقاومت و استقامت در برابر تحریم‌ها", traits: { nationalist: 3, authoritarian: 2, resistant: 3 } },
+      { text: "گفتگو و مذاکره برای رفع تحریم‌ها", traits: { diplomatic: 3, pragmatic: 2, moderate: 2 } },
+      { text: "خودکفایی و تکیه بر منابع داخلی", traits: { autarkic: 3, nationalist: 2, pragmatic: 1 } },
+      { text: "تسلیم و پذیرش خواسته‌های طرف مقابل", traits: { submissive: 3, pragmatic: 1, peaceful: 2 } }
     ]
   },
   {
-    question: "نظر شما در مورد اقتصاد و توزیع ثروت چیست؟",
+    question: "استقلال سیاسی مهم‌تر است یا اتحادهای بین‌المللی؟",
     options: [
-      { text: "بازار آزاد و رقابت بهترین راه توسعه است", traits: { capitalist: 3, liberal: 2, individualist: 1 } },
-      { text: "دولت باید در اقتصاد نقش قوی داشته باشد", traits: { socialist: 3, authoritarian: 1, collectivist: 2 } },
-      { text: "ترکیبی از بازار آزاد و نظارت دولتی", traits: { moderate: 3, pragmatic: 2, balanced: 2 } },
-      { text: "ثروت باید به صورت عادلانه توزیع شود", traits: { socialist: 2, progressive: 2, egalitarian: 3 } }
+      { text: "استقلال کامل و عدم وابستگی", traits: { nationalist: 3, independent: 3, isolationist: 2 } },
+      { text: "اتحادهای استراتژیک با حفظ استقلال", traits: { strategic: 3, pragmatic: 2, diplomatic: 2 } },
+      { text: "عضویت فعال در سازمان‌های بین‌المللی", traits: { internationalist: 3, liberal: 2, cooperative: 2 } },
+      { text: "پیروی از قدرت‌های بزرگ", traits: { dependent: 3, pragmatic: 1, submissive: 2 } }
     ]
   },
   {
-    question: "در برابر مخالفان و منتقدان چه رفتاری خواهید داشت؟",
+    question: "سیاست شما درباره رسانه‌ها و آزادی بیان چیست؟",
     options: [
-      { text: "با آنها گفتگو می‌کنم و سعی در متقاعدشان دارم", traits: { diplomatic: 3, democratic: 2, tolerant: 2 } },
-      { text: "آنها را سرکوب می‌کنم چون مانع پیشرفت هستند", traits: { authoritarian: 3, aggressive: 2, intolerant: 3 } },
-      { text: "آنها را نادیده می‌گیرم و کارم را ادامه می‌دهم", traits: { stubborn: 2, conservative: 1, focused: 2 } },
-      { text: "از انتقادات سازنده استفاده می‌کنم", traits: { progressive: 2, moderate: 2, pragmatic: 2 } }
+      { text: "آزادی کامل رسانه‌ها", traits: { liberal: 3, democratic: 3, tolerant: 2 } },
+      { text: "آزادی نسبی با نظارت محدود", traits: { moderate: 3, pragmatic: 2, balanced: 2 } },
+      { text: "کنترل رسانه‌ها برای امنیت ملی", traits: { authoritarian: 3, nationalist: 2, controlled: 3 } },
+      { text: "رسانه‌ها باید ابزار تبلیغات دولت باشند", traits: { propagandist: 3, authoritarian: 3, controlled: 2 } }
     ]
   },
   {
-    question: "نگرش شما نسبت به تغییرات اجتماعی چیست؟",
+    question: "برای توسعه کشور، بر صنعت تکیه می‌کنید یا کشاورزی یا دانش نوین؟",
     options: [
-      { text: "تغییرات باید آرام و تدریجی باشد", traits: { conservative: 3, moderate: 1, cautious: 2 } },
-      { text: "انقلاب سریع بهتر از اصلاحات کند است", traits: { revolutionary: 3, aggressive: 2, radical: 3 } },
-      { text: "تغییرات باید بر اساس علم و منطق باشد", traits: { progressive: 3, pragmatic: 2, rational: 3 } },
-      { text: "هر تغییری که به نفع ملت باشد را قبول دارم", traits: { nationalist: 2, pragmatic: 2, utilitarian: 2 } }
+      { text: "توسعه صنعتی و تولید", traits: { industrialist: 3, modernist: 2, pragmatic: 2 } },
+      { text: "کشاورزی و خودکفایی غذایی", traits: { traditionalist: 3, nationalist: 2, sustainable: 2 } },
+      { text: "اقتصاد دانش‌محور و فناوری", traits: { technocratic: 3, modernist: 3, innovative: 3 } },
+      { text: "ترکیب متعادل از همه بخش‌ها", traits: { balanced: 3, pragmatic: 3, moderate: 2 } }
     ]
   },
   {
-    question: "در مورد روابط بین‌الملل چه استراتژی دارید؟",
+    question: "در زمان بحران‌های انتخاباتی یا مردمی چه راهبردی دارید؟",
     options: [
-      { text: "صلح و همکاری با همه کشورها", traits: { diplomatic: 3, peaceful: 2, cooperative: 2 } },
-      { text: "قدرت نظامی قوی برای حفظ امنیت", traits: { militarist: 3, conservative: 2, nationalist: 2 } },
-      { text: "اول منافع ملی، بعد روابط دوستانه", traits: { nationalist: 3, pragmatic: 2, realist: 3 } },
-      { text: "پیشبرد ایدئولوژی خودم در سطح جهان", traits: { ideological: 3, aggressive: 1, expansionist: 2 } }
+      { text: "گفتگو و پاسخگویی به مردم", traits: { democratic: 3, transparent: 3, responsive: 2 } },
+      { text: "سرکوب قاطع اغتشاشات", traits: { authoritarian: 3, militarist: 2, tough: 3 } },
+      { text: "اصلاحات فوری برای آرام کردن اوضاع", traits: { reformist: 3, pragmatic: 2, adaptive: 2 } },
+      { text: "صبر و انتظار تا خود به خود آرام شود", traits: { passive: 3, conservative: 2, patient: 2 } }
     ]
   },
   {
-    question: "مهم‌ترین اولویت شما به عنوان رهبر چه خواهد بود؟",
+    question: "نقش دین در سیاست باید چقدر پررنگ باشد؟",
     options: [
-      { text: "رفاه و خوشبختی مردم", traits: { populist: 3, progressive: 2, humanitarian: 3 } },
-      { text: "قدرت و عظمت کشور", traits: { nationalist: 3, authoritarian: 1, militarist: 2 } },
-      { text: "حفظ ثبات و نظم", traits: { conservative: 3, moderate: 2, stable: 3 } },
-      { text: "پیشرفت علم و تکنولوژی", traits: { progressive: 3, pragmatic: 2, innovative: 3 } }
+      { text: "سیاست باید کاملاً سکولار باشد", traits: { secular: 3, liberal: 2, modernist: 2 } },
+      { text: "دین راهنمای ارزش‌های اخلاقی سیاست", traits: { spiritual: 3, traditional: 2, principled: 2 } },
+      { text: "دولت اسلامی و حاکمیت شریعت", traits: { theocratic: 3, traditional: 3, spiritual: 2 } },
+      { text: "استفاده ابزاری از دین برای مشروعیت", traits: { pragmatic: 3, manipulative: 2, strategic: 2 } }
     ]
   },
-  // جدید: سوال 7
   {
-    question: "شیوه تصمیم‌گیری شما چگونه است؟",
+    question: "سیاست شما درباره ارتش و قدرت نظامی چیست؟",
     options: [
-      { text: "تصمیم‌ها با مشورت و رای‌گیری گرفته شود", traits: { democratic: 3, collaborative: 2, transparent: 2 } },
-      { text: "تصمیم‌گیری سریع و فرماندهی‌شده لازم است", traits: { decisive: 3, authoritarian: 2, strategic: 2 } },
-      { text: "تحلیل داده و مشورت خبرگان", traits: { pragmatic: 3, technocratic: 2, rational: 2 } },
-      { text: "بنیادهای ایدئولوژیک راهنمای تصمیم‌ها هستند", traits: { ideological: 3, principled: 2, traditional: 1 } }
+      { text: "ارتش قوی برای دفاع از کشور", traits: { militarist: 3, nationalist: 2, defensive: 2 } },
+      { text: "قدرت نظامی برای نفوذ منطقه‌ای", traits: { expansionist: 3, militarist: 3, aggressive: 2 } },
+      { text: "کاهش بودجه نظامی و تمرکز بر رفاه", traits: { peaceful: 3, liberal: 2, welfare: 3 } },
+      { text: "متناسب با تهدیدات امنیتی", traits: { pragmatic: 3, strategic: 2, balanced: 2 } }
     ]
   },
-  // سوال 8
   {
-    question: "نگاه شما به آزادی بیان چیست؟",
+    question: "در سیاست اقتصادی، طرفدار دولت‌گرایی هستید یا بازار آزاد؟",
     options: [
-      { text: "آزادی بیان باید گسترده باشد حتی اگر ناراحت‌کننده باشد", traits: { liberal: 3, tolerant: 2, individualist: 2 } },
-      { text: "آزادی بیان مهم است اما باید محدودیت‌هایی برای امنیت وجود داشته باشد", traits: { balanced: 3, pragmatic: 2, cautious: 1 } },
-      { text: "آزادی بیان باید کنترل شود تا نظم حفظ شود", traits: { authoritarian: 3, propagandist: 2, intolerant: 1 } },
-      { text: "آزادی‌ای که به پیشرفت ملت کمک کند را تقویت می‌کنم", traits: { nationalist: 2, utilitarian: 2, progressive: 1 } }
+      { text: "اقتصاد کاملاً دولتی و برنامه‌ریزی متمرکز", traits: { socialist: 3, centralized: 3, controlled: 2 } },
+      { text: "بازار آزاد و حداقل دخالت دولت", traits: { capitalist: 3, liberal: 3, free_market: 2 } },
+      { text: "اقتصاد مختلط با نقش قوی دولت", traits: { mixed_economy: 3, pragmatic: 2, moderate: 2 } },
+      { text: "اقتصاد عدالت‌محور و توزیع ثروت", traits: { egalitarian: 3, socialist: 2, redistributive: 3 } }
     ]
   },
-  // سوال 9
   {
-    question: "رویکرد شما به دین و مذهب در سیاست چیست؟",
+    question: "در سیاست خارجی، به دیپلماسی نرم باور دارید یا قدرت سخت؟",
     options: [
-      { text: "سیاست باید جدا از مذهب باشد", traits: { secular: 3, liberal: 2, modernist: 2 } },
-      { text: "مذهب راهنمای ارزش‌ها و سیاست‌ها باشد", traits: { spiritual: 3, traditional: 2, principled: 2 } },
-      { text: "ترکیبی منطقی از هر دو برای ثبات جامعه", traits: { balanced: 3, pragmatic: 2, respectful: 1 } },
-      { text: "از مذهب برای تقویت انسجام ملی استفاده می‌کنم", traits: { nationalist: 2, cultural: 2, unifier: 2 } }
+      { text: "دیپلماسی، گفتگو و صلح", traits: { diplomatic: 3, peaceful: 3, soft_power: 2 } },
+      { text: "قدرت نظامی و اقتصادی", traits: { militarist: 3, hard_power: 3, aggressive: 2 } },
+      { text: "ترکیب دیپلماسی و قدرت", traits: { strategic: 3, balanced: 2, pragmatic: 2 } },
+      { text: "انزوا و عدم مداخله", traits: { isolationist: 3, defensive: 2, neutral: 2 } }
     ]
   },
-  // سوال 10
   {
-    question: "اقتصاد بین‌المللی و تجارت چه نقشی دارد؟",
+    question: "درباره حقوق اقلیت‌ها و آزادی‌های مدنی چه نظری دارید؟",
     options: [
-      { text: "بازار جهانی برای رشد ضروری است", traits: { capitalist: 3, cooperative: 2, internationalist: 2 } },
-      { text: "خودکفایی اقتصادی باید اولویت باشد", traits: { protectionist: 3, nationalist: 2, defensive: 2 } },
-      { text: "توازن بین تجارت آزاد و حمایت از صنایع داخلی", traits: { moderate: 3, pragmatic: 2, balanced: 2 } },
-      { text: "اقتصاد باید ابزار تقویت سیاست داخلی و خارجی باشد", traits: { strategic: 3, realist: 2, expansionist: 1 } }
+      { text: "حقوق کامل و برابری همه شهروندان", traits: { egalitarian: 3, liberal: 3, tolerant: 3 } },
+      { text: "حقوق محدود در چارچوب فرهنگ غالب", traits: { nationalist: 3, traditionalist: 2, restrictive: 2 } },
+      { text: "احترام به تنوع در چارچوب وحدت ملی", traits: { pluralist: 3, moderate: 2, inclusive: 2 } },
+      { text: "اولویت با امنیت و نظم عمومی", traits: { authoritarian: 3, security_first: 3, restrictive: 2 } }
     ]
   },
-  // سوال 11
   {
-    question: "رفتار شما در بحران‌های داخلی چگونه است؟",
+    question: "برای مقابله با فساد، چه اولویتی قائلید؟",
     options: [
-      { text: "شفافیت، همدلی و کمک‌رسانی اولویت دارد", traits: { transparent: 3, humane: 2, collaborative: 2 } },
-      { text: "تحکم و نظم برای بازگرداندن اوضاع لازم است", traits: { authoritarian: 3, decisive: 2, stable: 2 } },
-      { text: "ترکیبی از اقدام فوری و برنامه‌ریزی بلندمدت", traits: { pragmatic: 3, strategic: 2, resilient: 2 } },
-      { text: "فرصت برای تغییرات ساختاری در بحران‌ها وجود دارد", traits: { revolutionary: 2, reformist: 3, radical: 2 } }
+      { text: "نهادسازی و شفافیت کامل", traits: { transparent: 3, institutional: 3, systematic: 2 } },
+      { text: "برخورد قاطع و مجازات سنگین", traits: { tough: 3, authoritarian: 2, punitive: 3 } },
+      { text: "اصلاح تدریجی ساختارها", traits: { reformist: 3, gradual: 2, pragmatic: 2 } },
+      { text: "تقویت اخلاق و فرهنگ‌سازی", traits: { cultural: 3, educational: 2, moral: 3 } }
     ]
   },
-  // سوال 12
   {
-    question: "نقش رسانه‌ها و اطلاع‌رسانی در حکومت چگونه است؟",
+    question: "در بحران‌های جهانی (مثل جنگ یا کرونا) چه تصمیمی می‌گیرید؟",
     options: [
-      { text: "رسانه مستقل باید حفظ شود", traits: { transparent: 3, liberal: 2, democratic: 2 } },
-      { text: "رسانه باید هماهنگ با اهداف ملی باشد", traits: { propagandist: 3, nationalist: 2, controlled: 1 } },
-      { text: "آموزش و اطلاع‌رسانی عمومی برای پیشرفت مهم است", traits: { educational: 3, humane: 2, progressive: 2 } },
-      { text: "رسانه‌ها ابزار سیاست خارجی و داخلی هستند", traits: { strategic: 3, utilitarian: 2, selective: 1 } }
+      { text: "همکاری بین‌المللی و کمک متقابل", traits: { cooperative: 3, internationalist: 3, humanitarian: 2 } },
+      { text: "اول منافع ملی، بعد کمک به دیگران", traits: { nationalist: 3, pragmatic: 2, self_interest: 3 } },
+      { text: "رهبری جهانی در مقابله با بحران", traits: { leadership: 3, ambitious: 2, responsible: 2 } },
+      { text: "انزوا و محافظت از کشور", traits: { isolationist: 3, defensive: 3, protective: 2 } }
     ]
   },
-  // سوال 13
   {
-    question: "نگاه شما به حقوق اقلیت‌ها چیست؟",
+    question: "رابطه شما با قدرت‌های بزرگ (آمریکا، روسیه، چین) چگونه خواهد بود؟",
     options: [
-      { text: "حقوق اقلیت‌ها باید تقویت و محافظت شود", traits: { egalitarian: 3, democratic: 2, tolerant: 2 } },
-      { text: "اولویت با امنیت و وحدت ملی است", traits: { nationalist: 3, cautious: 2, defensive: 1 } },
-      { text: "حقوق اختصاصی در چارچوب منافع ملی قابل‌سازش است", traits: { pragmatic: 3, balanced: 2, selective: 1 } },
-      { text: "همه شهروندان برابرند و باید برخورد مساوی شود", traits: { humanist: 3, principled: 2, modernist: 2 } }
+      { text: "تعامل سازنده و دوستانه با همه", traits: { diplomatic: 3, balanced: 3, cooperative: 2 } },
+      { text: "مقابله و عدم تسلیم در برابر فشارها", traits: { resistant: 3, nationalist: 3, confrontational: 2 } },
+      { text: "اتحاد استراتژیک با یکی از آنها", traits: { aligned: 3, strategic: 2, dependent: 1 } },
+      { text: "مستقل از همه و غیرمتعهد", traits: { independent: 3, neutral: 3, nonaligned: 2 } }
     ]
   },
-  // سوال 14
   {
-    question: "چقدر تمایل به ریسک‌پذیری در سیاست دارید؟",
+    question: "توسعه علمی و فناوری چه جایگاهی در سیاست شما دارد؟",
     options: [
-      { text: "ریسک‌پذیری بالا برای دستیابی به تغییرات سریع", traits: { aggressive: 3, revolutionary: 2, ambitious: 2 } },
-      { text: "ریسک محدود و محاسبه‌شده", traits: { cautious: 3, pragmatic: 2, calculated: 2 } },
-      { text: "ریسک فقط وقتی منافع بزرگ دارد توجیه‌پذیر است", traits: { utilitarian: 3, strategic: 2, focused: 2 } },
-      { text: "از ثبات و حفاظت از دستاوردها استقبال می‌کنم", traits: { conservative: 3, stable: 2, protective: 2 } }
+      { text: "اولویت اول و سرمایه‌گذاری گسترده", traits: { technocratic: 3, modernist: 3, innovative: 3 } },
+      { text: "مهم اما در چارچوب ارزش‌های سنتی", traits: { balanced: 3, traditionalist: 2, cautious: 2 } },
+      { text: "ابزاری برای قدرت و امنیت ملی", traits: { strategic: 3, militarist: 2, nationalist: 2 } },
+      { text: "کمتر مهم از مسائل اجتماعی و اقتصادی", traits: { populist: 3, practical: 2, basic_needs: 2 } }
     ]
   },
-  // سوال 15
   {
-    question: "چگونه می‌خواهید میراث خود را بسازید؟",
+    question: "آیا پوپولیسم و بسیج مردمی را ترجیح می‌دهید یا تکنوکراسی و مدیریت نخبگان؟",
     options: [
-      { text: "با قانون‌گذاری برای حقوق و عدالت اجتماعی", traits: { reformist: 3, egalitarian: 2, principled: 2 } },
-      { text: "با قدرت و برتری نظامی/اقتصادی کشور", traits: { nationalist: 3, militarist: 2, ambitious: 2 } },
-      { text: "با پیشرفت علمی و توسعه فناوری", traits: { innovative: 3, visionary: 2, technocratic: 2 } },
-      { text: "با آشتی اجتماعی و تقویت سرمایه اجتماعی", traits: { diplomatic: 3, humane: 2, unifier: 2 } }
+      { text: "حکومت مردمی و بسیج توده‌ها", traits: { populist: 3, democratic: 2, grassroots: 3 } },
+      { text: "مدیریت علمی و تکنوکراتیک", traits: { technocratic: 3, elitist: 2, scientific: 3 } },
+      { text: "ترکیب مشارکت مردم و کارشناسی", traits: { balanced: 3, democratic: 2, pragmatic: 2 } },
+      { text: "رهبری نخبگان با حمایت مردم", traits: { elitist: 3, paternalistic: 2, guided: 2 } }
     ]
   }
 ];
 
 const leaders = [
+  // ===== رهبران ایرانی =====
   {
     name: "کوروش بزرگ",
-    title: "بنیانگذار امپراتوری هخامنشی",
-    era: "۵۷۹-۵۲۹ پیش از میلاد",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Cyrus_II_-_illustration.jpg/800px-Cyrus_II_-_illustration.jpg",
-    traits: { tolerant: 3, diplomatic: 3, visionary: 3, strategic: 3, pragmatic: 2, progressive: 2, humane: 3, nationalist: 2, militarist: 2, authoritarian: 1, conservative: 2, moderate: 2 },
-    description: "شما مانند کوروش بزرگ، رهبری مداراگر و بلندنظر هستید که به حقوق مردم و فرهنگ‌های مختلف احترام می‌گذارید. شما استراتژیست بزرگی هستید که می‌توانید تنوع فرهنگی را مدیریت کنید.",
-    politicalParty: "سلطنت",
-    suitableCountries: ["ایران", "هند", "مالزی", "امارات متحده عربی"],
-    governingStyle: "سلطنتی متمرکز با احترام به فرهنگ‌های محلی",
-    successRate: "85%",
-    keyDecisions: ["ایجاد منشور حقوق بشر", "احترام به ادیان مختلف", "توسعه نظامی و اقتصادی"]
+    title: "بنیان‌گذار امپراتوری هخامنشی",
+    era: "۵۵۹-۵۳۰ ق.م",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Cyrus_the_Great_bas_relief_in_Pasargadae%2C_Iran.JPG",
+    traits: { humane: 4, strategist: 4, tolerant: 4, expansionist: 3 },
+    description: "شما مانند کوروش، به تسامح، انسانیت و بنیان‌گذاری یک تمدن بزرگ باور دارید.",
+    politicalParty: "—",
+    suitableCountries: ["ایران باستان", "امپراتوری‌های چندفرهنگی"],
+    governingStyle: "پادشاهی عادل و گسترش‌طلب",
+    successRate: "95%",
+    keyDecisions: ["منشور حقوق بشر کوروش", "فتح بابل", "ایجاد امپراتوری هخامنشی"]
   },
   {
-    name: "نلسون ماندلا",
-    title: "رهبر صلح‌جو و دموکراسی‌خواه",
-    era: "۱۹۱۸-۲۰۱۳ میلادی",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Nelson_Mandela-2008_%28edit%29.jpg/800px-Nelson_Mandela-2008_%28edit%29.jpg",
-    traits: { democratic: 3, peaceful: 3, diplomatic: 3, progressive: 2, tolerant: 3, humane: 3, resilient: 3, collaborative: 3, egalitarian: 3, liberal: 2 },
-    description: "شما مانند ماندلا، رهبری صلح‌جو و مردم‌محور هستید که مصالحه و آشتی را بر انتقام ترجیح می‌دهید. شما برای دموکراسی و حقوق بشر ارزش بسیاری قائلید.",
-    politicalParty: "کنگره ملی آفریقا",
-    suitableCountries: ["آفریقای جنوبی", "کانادا", "نروژ", "نیوزیلند"],
-    governingStyle: "دموکراسی چندنژادی مبتنی بر آشتی ملی",
-    successRate: "92%",
-    keyDecisions: ["پایان دادن به آپارتاید", "ایجاد کمیسیون حقیقت و آشتی", "تقویت دموکراسی"]
+    name: "داریوش بزرگ",
+    title: "شاهنشاه هخامنشی",
+    era: "۵۲۲-۴۸۶ ق.م",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/23/Darius_the_Great.jpg",
+    traits: { organizer: 4, strategist: 4, authoritarian: 3, tolerant: 3 },
+    description: "شما مانند داریوش، نظم، قانون و توسعه اداری را سرلوحه دارید.",
+    politicalParty: "—",
+    suitableCountries: ["ایران باستان", "امپراتوری‌های بزرگ"],
+    governingStyle: "پادشاهی متمرکز",
+    successRate: "90%",
+    keyDecisions: ["ایجاد داریوش‌نامه", "تقسیم کشور به ساتراپی‌ها", "ساخت تخت جمشید"]
   },
   {
-    name: "وینستون چرچیل",
-    title: "رهبر جنگی و استراتژیست",
-    era: "۱۸۷۴-۱۹۶۵ میلادی",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Sir_Winston_Churchill_-_19086236948.jpg/800px-Sir_Winston_Churchill_-_19086236948.jpg",
-    traits: { militarist: 3, conservative: 3, nationalist: 3, stubborn: 2, strategic: 3, decisive: 3, resilient: 3, authoritarian: 2, capitalist: 3, ideological: 2 },
-    description: "شما مانند چرچیل، در مواقع حساس قاطع و مقاوم هستید. شما رهبری هستید که در شرایط سخت، شجاعت و اراده‌ای قوی نشان می‌دهید و می‌توانید ملت را در بحران‌ها هدایت کنید.",
-    politicalParty: "حزب محافظه‌کار",
-    suitableCountries: ["بریتانیا", "ایالات متحده آمریکا", "اسرائیل", "فرانسه"],
-    governingStyle: "رهبری قاطع در زمان جنگ و بحران",
-    successRate: "78%",
-    keyDecisions: ["رهبری در جنگ جهانی دوم", "تشکیل اتحاد با متفقین", "سخنرانی‌های الهام‌بخش"]
-  },
-  // رهبران معاصر بیشتر
-  {
-    name: "کیم جونگ‌اون",
-    title: "رهبر کره شمالی",
-    era: "متعاصر",
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6d/Kim_Jong-un_in_Pyongyang_2019_%28cropped%29.jpg",
-    traits: { authoritarian: 4, nationalist: 3, militarist: 3, propagandist: 3, isolationist: 2 },
-    description: "شما مانند کیم جونگ‌اون، مدیریتی متمرکز و اقتدارگرا دارید؛ امنیت و انسجام در مرکز سیاست‌ها قرار دارد.",
-    politicalParty: "حزب کارگران کره",
-    suitableCountries: ["کره شمالی"],
-    governingStyle: "اقتدارگرایانه و متمرکز",
-    successRate: "55%",
-    keyDecisions: ["تمرکز قدرت", "تقویت ارتش", "سیاست‌های داخلی سخت‌گیرانه"]
-  },
-  {
-    name: "شی جین‌پینگ",
-    title: "رهبر جمهوری خلق چین",
-    era: "متعاصر",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/50/Xi_Jinping_2019.jpg",
-    traits: { authoritarian: 4, pragmatic: 3, nationalist: 3, technocratic: 2, strategic: 3 },
-    description: "شما مانند شی، ترکیبی از اقتدار و تکنوکراسی را به کار می‌برید؛ توسعه اقتصادی و کنترل سیاسی همزمان دنبال می‌شود.",
-    politicalParty: "حزب کمونیست چین",
-    suitableCountries: ["چین", "مناطق شرقی آسیا"],
-    governingStyle: "اقتدار در هماهنگی با توسعه اقتصادی",
-    successRate: "80%",
-    keyDecisions: ["سیاست توسعه اقتصادی", "کنترل اجتماعی", "تمرکز قدرت"]
-  },
-  {
-    name: "ولادیمیر پوتین",
-    title: "رهبر روسیه",
-    era: "متعاصر",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/81/Vladimir_Putin_%282024%29.jpg",
-    traits: { authoritarian: 4, nationalist: 3, strategic: 3, realist: 3, conservative: 2 },
-    description: "شما مانند پوتین، رهبرانی هستید که روی امنیت ملی، نفوذ منطقه‌ای و سیاست‌های واقع‌گرایانه تأکید می‌کنید.",
-    politicalParty: "مستقل / متحدان محافظه‌کار",
-    suitableCountries: ["روسیه", "کشورهای همسایه"],
-    governingStyle: "قدرت متمرکز با رویکرد واقع‌گرایانه",
+    name: "نادرشاه افشار",
+    title: "پادشاه ایران",
+    era: "۱۷۳۶-۱۷۴۷",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Nader_Shah_Art.jpg",
+    traits: { militarist: 4, nationalist: 3, authoritarian: 3, strategist: 3 },
+    description: "شما مانند نادرشاه، رهبر جنگجو و فتح‌طلب هستید.",
+    politicalParty: "—",
+    suitableCountries: ["ایران", "امپراتوری‌های جنگی"],
+    governingStyle: "نظامی‌گرای مقتدر",
     successRate: "70%",
-    keyDecisions: ["تمرکز قدرت", "سیاست خارجی فعال", "تقویت نهادهای امنیتی"]
+    keyDecisions: ["فتح دهلی", "اتحاد ارتش‌های قبیله‌ای", "احیای اقتدار ایران"]
   },
   {
-    name: "باراک اوباما",
-    title: "ریاست‌جمهوری ایالات متحده",
-    era: "متأخر معاصر",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8d/President_Barack_Obama.jpg",
-    traits: { liberal: 3, diplomatic: 3, progressive: 2, pragmatic: 3, collaborative: 2 },
-    description: "شما مانند اوباما، به سیاست دیپلماتیک، گفتگوی بین‌المللی و اصلاحات تدریجی علاقه‌مندید.",
-    politicalParty: "دموکرات",
-    suitableCountries: ["ایالات متحده آمریکا", "کشورهای غربی"],
-    governingStyle: "دموکراسی لیبرال با تمرکز بر دیپلماسی",
-    successRate: "83%",
-    keyDecisions: ["تقویت دیپلماسی", "سیاست‌های اصلاحی داخلی", "رویکرد چندجانبه"]
+    name: "امیرکبیر",
+    title: "صدر اعظم ایران",
+    era: "۱۸۴۸-۱۸۵۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/03/Amir_Kabir.jpg",
+    traits: { reformist: 4, nationalist: 3, modernist: 3, pragmatic: 3 },
+    description: "شما مانند امیرکبیر، اصلاحات، آموزش و پیشرفت ملی را دنبال می‌کنید.",
+    politicalParty: "—",
+    suitableCountries: ["ایران", "کشورهای در حال توسعه"],
+    governingStyle: "اصلاح‌گر ملی",
+    successRate: "80%",
+    keyDecisions: ["تأسیس دارالفنون", "اصلاحات اداری", "کاهش نفوذ خارجی"]
   },
   {
-    name: "آنگلا مرکل",
-    title: "صدراعظم پیشین آلمان",
-    era: "متأخر معاصر",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Angela_Merkel_July_2010.jpg",
-    traits: { pragmatic: 4, moderate: 3, diplomatic: 3, technocratic: 2, cautious: 2 },
-    description: "شما مانند مرکل، مدیری میانه‌رو، واقع‌گرا و متکی بر کارشناسی هستید که ثبات و تدبیر را ارج می‌نهد.",
-    politicalParty: "حزب دموکرات مسیحی",
-    suitableCountries: ["آلمان", "کشورهای اروپایی"],
-    governingStyle: "میانه‌رو و تکنوکراتیک",
-    successRate: "88%",
-    keyDecisions: ["ثبات اقتصادی", "رهبری اتحادیه اروپا", "مدیریت محتاط بحران‌ها"]
-  }
-];
+    name: "میرزا کوچک‌خان جنگلی",
+    title: "رهبر جنبش جنگل",
+    era: "۱۹۱۴-۱۹۲۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/f2/Mirza_Koochak_Khan.jpg",
+    traits: { revolutionary: 4, nationalist: 3, spiritual: 2, socialist: 2 },
+    description: "شما مانند میرزا کوچک‌خان، رهبر انقلابی و ملی‌گرای عدالت‌خواه هستید.",
+    politicalParty: "جنبش جنگل",
+    suitableCountries: ["ایران", "جنبش‌های استقلال‌طلب"],
+    governingStyle: "انقلابی ملی‌گرا",
+    successRate: "65%",
+    keyDecisions: ["تشکیل جمهوری گیلان", "مبارزه با استعمار روس و انگلیس", "جنگ چریکی"]
+  },
+  {
+    name: "محمد مصدق",
+    title: "نخست‌وزیر ایران",
+    era: "۱۹۵۱-۱۹۵۳",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/17/Mohammad_Mosaddegh2.jpg",
+    traits: { democratic: 4, nationalist: 3, antiImperialist: 4, liberal: 3 },
+    description: "شما مانند مصدق، استقلال سیاسی و اقتصادی را با تکیه بر مردم‌سالاری دنبال می‌کنید.",
+    politicalParty: "جبهه ملی",
+    suitableCountries: ["ایران", "کشورهای ضد استعمار"],
+    governingStyle: "ملی‌گرای دموکراتیک",
+    successRate: "70%",
+    keyDecisions: ["ملی کردن نفت", "مبارزه با استعمار", "اصلاحات سیاسی"]
+  },
+  {
+    name: "رضا شاه پهلوی",
+    title: "شاه ایران",
+    era: "۱۹۲۵-۱۹۴۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Reza_Shah_Pahlavi.jpg",
+    traits: { authoritarian: 4, nationalist: 4, modernist: 3, militarist: 2 },
+    description: "شما مانند رضا شاه، به تمرکز قدرت، نوسازی و اقتدار ملی اهمیت می‌دهید.",
+    politicalParty: "پهلوی",
+    suitableCountries: ["ایران", "ترکیه آتاتورک"],
+    governingStyle: "اقتدارگرای مدرن‌ساز",
+    successRate: "65%",
+    keyDecisions: ["راه‌آهن سراسری", "لغو کاپیتولاسیون", "مدرن‌سازی ارتش"]
+  },
+  {
+    name: "محمدرضا شاه پهلوی",
+    title: "آخرین شاه ایران",
+    era: "۱۹۴۱-۱۹۷۹",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/71/Mohammad_Reza_Shah_Pahlavi_1967.jpg",
+    traits: { modernist: 3, authoritarian: 3, nationalist: 3, capitalist: 2 },
+    description: "شما مانند محمدرضا شاه، به مدرنیزاسیون و اتحاد با غرب باور دارید.",
+    politicalParty: "پهلوی",
+    suitableCountries: ["ایران", "کشورهای متحد غرب"],
+    governingStyle: "سلطنتی مدرن",
+    successRate: "60%",
+    keyDecisions: ["انقلاب سفید", "رابطه نزدیک با آمریکا", "توسعه اقتصادی"]
+  },
+  {
+    name: "روح‌الله خمینی",
+    title: "رهبر انقلاب ایران",
+    era: "۱۹۷۹-۱۹۸۹",
+    image: "https://upload.wikimedia.org/wikipedia/commons/9/94/Khomeini_in_1965.jpg",
+    traits: { ideological: 4, spiritual: 4, revolutionary: 4, authoritarian: 3 },
+    description: "شما مانند خمینی، سیاست را با ایدئولوژی و دین پیوند می‌زنید.",
+    politicalParty: "جمهوری اسلامی",
+    suitableCountries: ["ایران", "کشورهای اسلامی"],
+    governingStyle: "اسلام‌گرای انقلابی",
+    successRate: "80%",
+    keyDecisions: ["انقلاب ۵۷", "تأسیس جمهوری اسلامی", "رهبری در جنگ ایران و عراق"]
+  },
+  {
+    name: "علی خامنه‌ای",
+    title: "رهبر جمهوری اسلامی ایران",
+    era: "۱۹۸۹-اکنون",
+    image: "https://upload.wikimedia.org/wikipedia/commons/2/2e/Ali_Khamenei_in_2018.jpg",
+    traits: { ideological: 3, nationalist: 3, authoritarian: 3, strategic: 3 },
+    description: "شما مانند خامنه‌ای، بر ثبات سیاسی، استقلال و ایدئولوژی تاکید دارید.",
+    politicalParty: "جمهوری اسلامی",
+    suitableCountries: ["ایران", "کشورهای اسلامی"],
+    governingStyle: "ایدئولوژیک-اقتدارگرا",
+    successRate: "75%",
+    keyDecisions: ["توسعه برنامه هسته‌ای", "سیاست مقاومت در برابر غرب", "حفظ انسجام داخلی"]
+  },
+  {
+    name: "اکبر هاشمی رفسنجانی",
+    title: "رئیس‌جمهور ایران",
+    era: "۱۹۸۹-۱۹۹۷",
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Akbar_Hashemi_Rafsanjani%2C_2016.jpg",
+    traits: { pragmatic: 4, moderate: 3, capitalist: 2, nationalist: 2 },
+    description: "شما مانند رفسنجانی، عملگرایی و توسعه اقتصادی را در سیاست در اولویت دارید.",
+    politicalParty: "کارگزاران سازندگی",
+    suitableCountries: ["ایران", "کشورهای در حال توسعه"],
+    governingStyle: "عملگرای توسعه‌گرا",
+    successRate: "70%",
+    keyDecisions: ["بازسازی بعد از جنگ", "گسترش اقتصاد بازار", "سیاست خارجی متعادل"]
+  },
+  {
+    name: "سید محمد خاتمی",
+    title: "رئیس‌جمهور ایران",
+    era: "۱۹۹۷-۲۰۰۵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/79/Mohammad_Khatami_in_September_2009_%28cropped%29.jpg",
+    traits: { reformist: 4, liberal: 3, democratic: 3, moderate: 3 },
+    description: "شما مانند خاتمی، به اصلاحات، گفت‌وگوی تمدن‌ها و آزادی‌های مدنی باور دارید.",
+    politicalParty: "اصلاح‌طلبان",
+    suitableCountries: ["ایران", "دموکراسی‌های در حال گذار"],
+    governingStyle: "اصلاح‌طلب دموکرات",
+    successRate: "65%",
+    keyDecisions: ["گفت‌وگوی تمدن‌ها", "اصلاحات سیاسی", "افزایش آزادی مطبوعات"]
+  },
+  {
+    name: "محمود احمدی‌نژاد",
+    title: "رئیس‌جمهور ایران",
+    era: "۲۰۰۵-۲۰۱۳",
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Mahmoud_Ahmadinejad_-_2009.jpg",
+    traits: { populist: 4, nationalist: 3, radical: 3, authoritarian: 2 },
+    description: "شما مانند احمدی‌نژاد، با گفتمان پوپولیستی و تقابل با غرب پیش می‌روید.",
+    politicalParty: "اصولگرایان",
+    suitableCountries: ["ایران", "ونزوئلا چاوز"],
+    governingStyle: "پوپولیستی-ملی‌گرایانه",
+    successRate: "55%",
+    keyDecisions: ["برنامه هسته‌ای", "یارانه نقدی", "سیاست خارجی تهاجمی"]
+  },
+  {
+    name: "مسعود پزشکیان",
+    title: "رئیس‌جمهور ایران",
+    era: "۲۰۲۴-اکنون",
+    image: "https://upload.wikimedia.org/wikipedia/commons/a/a7/Masoud_Pezeshkian_in_2021.jpg",
+    traits: { reformist: 3, moderate: 3, democratic: 2, humane: 3 },
+    description: "شما مانند پزشکیان، به اعتدال، اصلاحات اجتماعی و گفت‌وگو باور دارید.",
+    politicalParty: "اصلاح‌طلبان",
+    suitableCountries: ["ایران", "دموکراسی‌های نوپا"],
+    governingStyle: "اصلاح‌طلب معتدل",
+    successRate: "60%",
+    keyDecisions: ["تقویت شفافیت", "اصلاحات اجتماعی", "بهبود روابط خارجی"]
+  },]
+
 
 let currentQuestion = 0;
 let userTraits = {};
@@ -318,7 +387,12 @@ function selectOption(index) {
 
 function nextQuestion() {
   if (userAnswers[currentQuestion] === undefined) {
-    alert("لطفاً یک گزینه انتخاب کنید");
+    Swal.fire({
+      icon: "error",
+      title: "مشکلی به وجود امده است.",
+      text: "حتما بایستی یک گزینه را انتخاب کرده باشید.",
+      confirmButtonText: 'باشه'
+    });
     return;
   }
 
