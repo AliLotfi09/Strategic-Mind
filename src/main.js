@@ -1018,6 +1018,7 @@ function nextQuestion() {
     updateNavButtons();
   } else {
     showResult();
+    
   }
 }
 
@@ -1249,9 +1250,17 @@ function shareResult() {
   const text = `من در تست شخصیت سیاسی شبیه ${leaderName} هستم! میزان تطابق: ${matchPercentage}`;
 
   navigator.clipboard.writeText(text).then(() => {
-    alert('نتیجه در حافظه کپی شد!');
+    Swal.fire({
+      icon: "success",
+      title: "نتیجه در حافظه کپی شد!",
+      confirmButtonText: 'باشه'
+    });
   }).catch(err => {
-    console.error('خطا در کپی کردن:', err);
+    Swal.fire({
+      icon: "error",
+      title: "مشکلی در عملیات بوجود امده است",
+      confirmButtonText: 'باشه'
+    }, err);
   });
 }
 
