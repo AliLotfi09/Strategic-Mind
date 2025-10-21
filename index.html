@@ -30,16 +30,23 @@
 
     <div class="controls">
       <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">
-        ← قبلی
+        → قبلی
       </button>
       <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
-        بعدی →
+        بعدی ←
       </button>
+    </div>
+    <div class="note">
+      <i>
+        <b>
+          * این تست بر اساس تحلیل ویژگی‌های شخصیتی رهبران تاریخی طراحی شده و نتیجه آن صرفاً جنبه سرگرمی دارد.
+        </b>
+      </i>
     </div>
 
     <div class="result-container" id="resultContainer">
       <div class="result-card">
-        <img class="leader-image" id="leaderImage" src="" alt="رهبر تاریخی">
+        <!-- <img class="leader-image" id="leaderImage" src="" alt="رهبر تاریخی"> -->
         <div class="leader-name" id="leaderName"></div>
         <div class="leader-title" id="leaderTitle"></div>
         <div class="leader-era" id="leaderEra"></div>
@@ -58,9 +65,6 @@
         <div class="share-buttons">
           <button class="share-btn share-copy" onclick="shareResult()">
             📋 کپی نتیجه
-          </button>
-          <button class="share-btn share-twitter" onclick="shareOnTwitter()">
-            🐦 اشتراک در توییتر
           </button>
         </div>
 
