@@ -834,6 +834,7 @@ const traitNames = {
 };
 
 
+
 const config = {
   questions: questions,
   leaders: leaders,
@@ -979,18 +980,18 @@ function renderQuestion() {
   const container = document.getElementById('questionContainer');
 
   const html = `
-        <div class="question-block">
-          <div class="question-text">${q.question}</div>
-          <div class="options">
-            ${q.options.map((opt, idx) => `
-              <div class="option ${state.answers[state.currentQuestion] === idx ? 'selected' : ''}"
-                   onclick="selectOption(${idx})">
-                ${opt.text}
-              </div>
-            `).join('')}
+    <div class="question-block">
+      <div class="question-text">${q.question}</div>
+      <div class="options">
+        ${q.options.map((opt, idx) => `
+          <div class="option ${state.answers[state.currentQuestion] === idx ? 'selected' : ''}"
+               onclick="selectOption(${idx})">
+            ${opt.text}
           </div>
-        </div>
-      `;
+        `).join('')}
+      </div>
+    </div>
+  `;
 
   container.innerHTML = html;
 }
@@ -1036,65 +1037,102 @@ function updateProgress() {
 }
 
 function showResults() {
-  findBestMatch();
+  try {
+    // محاسبه نتیجه
+    findBestMatch();
 
-  localStorage.setItem('testResult', JSON.stringify(state.bestMatch));
-  localStorage.setItem('testAnswers', JSON.stringify(state.answers));
-  localStorage.setItem('testTraits', JSON.stringify(state.userTraits));
+    // ذخیره در localStorage قبل از هر چیز
+    try {
+      localStorage.setItem('testResult', JSON.stringify(state.bestMatch));
+      localStorage.setItem('testAnswers', JSON.stringify(state.answers));
+      localStorage.setItem('testTraits', JSON.stringify(state.userTraits));
+      console.log('نتایج با موفقیت در localStorage ذخیره شد');
+    } catch (storageError) {
+      console.error('خطا در ذخیره localStorage:', storageError);
+      showToast('خطا در ذخیره نتایج');
+    }
 
-  document.getElementById('quizScreen').classList.remove('active');
-  document.getElementById('resultScreen').classList.add('active');
+    // تغییر صفحه
+    document.getElementById('quizScreen').classList.remove('active');
+    document.getElementById('resultScreen').classList.add('active');
 
-  const match = state.bestMatch;
+    const match = state.bestMatch;
 
-  document.getElementById('resultImage').src = match.image || '';
-  document.getElementById('resultName').textContent = match.name || '';
-  document.getElementById('resultTitle').textContent = match.title || '';
-  document.getElementById('matchPercent').textContent = match.percentage + '%';
-  document.getElementById('resultDescription').textContent = match.description || '';
+    // نمایش اطلاعات
+    document.getElementById('resultName').textContent = match.name || 'نامشخص';
+    document.getElementById('resultTitle').textContent = match.title || '';
+    document.getElementById('matchPercent').textContent = match.percentage + '%';
+    document.getElementById('resultDescription').textContent = match.description || '';
 
-  const details = `
-        <div class="result-detail">
-          <div class="detail-label">سبک رهبری</div>
-          <div class="detail-value">${match.governingStyle || '—'}</div>
+    // نمایش جزئیات
+    const details = `
+      <div class="result-detail">
+        <div class="detail-label">سبک رهبری</div>
+        <div class="detail-value">${match.governingStyle || '—'}</div>
+      </div>
+    `;
+    document.getElementById('resultDetails').innerHTML = details;
+
+    // نمایش ویژگی‌های برتر
+    const topTraits = Object.entries(match.traits || {})
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4);
+
+    const traitsHtml = topTraits.map(([name, score]) => `
+      <div class="trait-item">
+        <div class="trait-name">${config.traitNames[name] || name}</div>
+        <div class="trait-bar">
+          <div class="trait-fill" style="--fill-width: ${(score / 4) * 100}%"></div>
         </div>
-      `;
-  document.getElementById('resultDetails').innerHTML = details;
+        <div class="trait-score">${score}/4</div>
+      </div>
+    `).join('');
 
-  const topTraits = Object.entries(match.traits || {})
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 4);
+    document.getElementById('traitsGrid').innerHTML = traitsHtml;
 
-  const traitsHtml = topTraits.map(([name, score]) => `
-        <div class="trait-item">
-          <div class="trait-name">${name}</div>
-          <div class="trait-bar">
-            <div class="trait-fill" style="--fill-width: ${(score / 4) * 100}%"></div>
-          </div>
-          <div class="trait-score">${score}/4</div>
-        </div>
-      `).join('');
+    window.scrollTo(0, 0);
 
-  document.getElementById('traitsGrid').innerHTML = traitsHtml;
-
-  window.scrollTo(0, 0);
+  } catch (error) {
+    console.error('خطا در نمایش نتایج:', error);
+    showToast('خطا در نمایش نتایج. لطفا دوباره تلاش کنید.');
+  }
 }
 
 function shareResult() {
   const match = state.bestMatch;
   const text = `من در تست شخصیت "${match.name}" شدم! درصد تطابق: ${match.percentage}%`;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('نتیجه در کلیپ‌بورد کپی شد');
-  }).catch(() => {
-    showToast('خطا در کپی کردن');
-  });
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => {
+      showToast('نتیجه در کلیپ‌بورد کپی شد');
+    }).catch(() => {
+      showToast('خطا در کپی کردن');
+    });
+  } else {
+    // روش قدیمی برای مرورگرهای قدیمی
+    const textArea = document.createElement('textarea');
+    textArea.value = text;
+    textArea.style.position = 'fixed';
+    textArea.style.left = '-999999px';
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      showToast('نتیجه در کلیپ‌بورد کپی شد');
+    } catch (err) {
+      showToast('خطا در کپی کردن');
+    }
+    document.body.removeChild(textArea);
+  }
 }
 
 function restartTest() {
+  // پاک کردن localStorage
   localStorage.removeItem('testResult');
   localStorage.removeItem('testAnswers');
   localStorage.removeItem('testTraits');
 
+  // ریست کردن state
   state = {
     currentQuestion: 0,
     answers: [],
@@ -1103,9 +1141,89 @@ function restartTest() {
     testStarted: false
   };
 
+  // برگشت به صفحه اول
   document.getElementById('resultScreen').classList.remove('active');
   document.getElementById('introScreen').classList.remove('hidden');
   document.getElementById('quizScreen').classList.remove('active');
 
   window.scrollTo(0, 0);
+}
+
+// بارگذاری نتایج قبلی در صورت وجود
+window.addEventListener('DOMContentLoaded', function () {
+  try {
+    const savedResult = localStorage.getItem('testResult');
+    const savedAnswers = localStorage.getItem('testAnswers');
+    const savedTraits = localStorage.getItem('testTraits');
+
+    if (savedResult && savedAnswers && savedTraits) {
+      console.log('نتیجه قبلی پیدا شد، در حال بارگذاری...');
+
+      // پارس کردن داده‌ها
+      state.bestMatch = JSON.parse(savedResult);
+      state.answers = JSON.parse(savedAnswers);
+      state.userTraits = JSON.parse(savedTraits);
+      state.testStarted = true;
+
+      // نمایش صفحه نتایج
+      loadResultsFromStorage();
+    }
+  } catch (error) {
+    console.error('خطا در خواندن localStorage:', error);
+  }
+});
+
+// تابع بارگذاری نتایج از localStorage
+function loadResultsFromStorage() {
+  try {
+    // مخفی کردن صفحه intro
+    document.getElementById('introScreen').classList.add('hidden');
+
+    // نمایش صفحه نتایج
+    document.getElementById('resultScreen').classList.add('active');
+
+    const match = state.bestMatch;
+
+    // نمایش اطلاعات
+    document.getElementById('resultName').textContent = match.name || 'نامشخص';
+    document.getElementById('resultTitle').textContent = match.title || '';
+    document.getElementById('matchPercent').textContent = match.percentage + '%';
+    document.getElementById('resultDescription').textContent = match.description || '';
+
+    // نمایش جزئیات
+    const details = `
+      <div class="result-detail">
+        <div class="detail-label">سبک رهبری</div>
+        <div class="detail-value">${match.governingStyle || '—'}</div>
+      </div>
+    `;
+    document.getElementById('resultDetails').innerHTML = details;
+
+    // نمایش ویژگی‌های برتر
+    const topTraits = Object.entries(match.traits || {})
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 4);
+
+    const traitsHtml = topTraits.map(([name, score]) => `
+      <div class="trait-item">
+        <div class="trait-name">${config.traitNames[name] || name}</div>
+        <div class="trait-bar">
+          <div class="trait-fill" style="--fill-width: ${(score / 4) * 100}%"></div>
+        </div>
+        <div class="trait-score">${score}/4</div>
+      </div>
+    `).join('');
+
+    document.getElementById('traitsGrid').innerHTML = traitsHtml;
+
+    console.log('نتایج با موفقیت از localStorage بارگذاری شد');
+  } catch (error) {
+    console.error('خطا در بارگذاری نتایج:', error);
+    // در صورت خطا، localStorage رو پاک کن و صفحه اول رو نشون بده
+    localStorage.removeItem('testResult');
+    localStorage.removeItem('testAnswers');
+    localStorage.removeItem('testTraits');
+    document.getElementById('introScreen').classList.remove('hidden');
+    document.getElementById('resultScreen').classList.remove('active');
+  }
 }

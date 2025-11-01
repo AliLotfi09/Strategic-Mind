@@ -2,13 +2,65 @@
 <html lang="fa" dir="rtl">
 
 <head>
+  <!-- Meta Tags for SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تست شخصیت سیاسی</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Primary Meta Tags -->
+  <title>تست شخصیت سیاسی | کشف کنید شما شبیه کدام رهبر استراتژیست هستید</title>
+  <meta name="title" content="تست شخصیت سیاسی | کشف کنید شما شبیه کدام رهبر استراتژیست هستید">
+  <meta name="description"
+    content="با پاسخ به 15 سوال استراتژیک، شخصیت سیاسی خود را کشف کنید و بفهمید شما شبیه کدام رهبر بزرگ تاریخ هستید. تست رایگان و دقیق با الگوریتم پیشرفته.">
+  <meta name="keywords"
+    content="تست شخصیت سیاسی, تست شخصیت شناسی, رهبران سیاسی, تست روانشناسی, آزمون شخصیت, تحلیل شخصیت">
+  <meta name="author" content="تست شخصیت">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="Persian">
+  <meta name="revisit-after" content="2 days">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://strategic.imalixd.ir">
+  <meta property="og:title" content="تست شخصیت سیاسی | کشف کنید شما شبیه کدام رهبر استراتژیست هستید">
+  <meta property="og:description"
+    content="با پاسخ به 15 سوال استراتژیک، شخصیت سیاسی خود را کشف کنید و بفهمید شما شبیه کدام رهبر بزرگ تاریخ هستید.">
+  <meta property="og:image" content="assets/og-image.jpg">
+  <meta property="og:locale" content="fa_IR">
+  <meta property="og:site_name" content="تست شخصیت سیاسی">
+
+  <!-- Twitter -->
+  <meta property="twitter:url" content="https://strategic.imalixd.ir">
+  <meta property="twitter:title" content="تست شخصیت سیاسی | کشف کنید شما شبیه کدام رهبر استراتژیست هستید">
+  <meta property="twitter:description"
+    content="با پاسخ به 15 سوال استراتژیک، شخصیت سیاسی خود را کشف کنید و بفهمید شما شبیه کدام رهبر بزرگ تاریخ هستید.">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://strategic.imalixd.ir">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
+  <!-- Additional SEO -->
+  <meta name="format-detection" content="telephone=no">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="تست شخصیت">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <link rel="stylesheet" href="./src/style.css">
 </head>
 
 <body>
+  <!-- <div id="previewModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closePreview()">✕</span>
+      <div id="previewContainer"></div>
+      <button class="download-btn" onclick="confirmDownload()">دانلود تصویر</button>
+    </div>
+  </div> -->
+
   <div class="container">
     <!-- INTRO -->
     <div id="introScreen">
@@ -59,24 +111,28 @@
     <!-- RESULTS -->
     <div id="resultScreen">
       <div class="result-wrapper">
-        <div class="result-header">
-          <img class="result-image" id="resultImage" src="">
-          <div class="result-name" id="resultName"></div>
-          <div class="result-title" id="resultTitle"></div>
+        <!-- این بخش دانلود می‌شود -->
+        <div id="shareableContent">
+          <div class="result-header">
+            <img class="result-image" id="resultImage" src="">
+            <div class="result-name" id="resultName"></div>
+            <div class="result-title" id="resultTitle"></div>
+          </div>
+
+          <div class="match-container">
+            <div class="match-score" id="matchPercent">85%</div>
+            <div class="match-label">درصد تطابق</div>
+          </div>
+
+          <div class="result-description" id="resultDescription"></div>
+
+          <div class="traits-grid" id="traitsGrid"></div>
+
+          <div id="resultDetails"></div>
         </div>
-
-        <div class="match-container">
-          <div class="match-score" id="matchPercent">85%</div>
-          <div class="match-label">درصد تطابق</div>
-        </div>
-
-        <div class="result-description" id="resultDescription"></div>
-
-        <div class="traits-grid" id="traitsGrid"></div>
-
-        <div id="resultDetails"></div>
 
         <div class="action-buttons">
+          <!-- <button class="action-btn" onclick="downloadAsImage()">📥 دانلود به صورت تصویر</button> -->
           <button class="action-btn" onclick="shareResult()">کپی نتیجه</button>
           <button class="action-btn secondary" onclick="restartTest()">آزمون دوباره</button>
         </div>
