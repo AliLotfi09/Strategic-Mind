@@ -49,6 +49,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="apple-mobile-web-app-title" content="تست شخصیت">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
   <link rel="stylesheet" href="./src/style.css">
 </head>
 
@@ -67,8 +69,8 @@
       <div class="intro-wrapper">
         <div class="intro-header">
           <div class="intro-line"></div>
-          <div class="intro-title">تست شخصیت</div>
-          <div class="intro-subtitle">کشف کنید شما شبیه کدام رهبر استراتژیست هستید</div>
+          <div class="intro-title">تست شخصیت سیاسی</div>
+          <div class="intro-subtitle">کشف کنید شما شبیه کدام رهبر تاریخی یا معاصر هستید</div>
         </div>
 
         <div class="intro-benefits">
@@ -131,14 +133,24 @@
           <div id="resultDetails"></div>
         </div>
 
+        <div class="personality-chart-container">
+          <h3 class="chart-title">نمودار شخصیتی شما</h3>
+          <div class="chart-wrapper">
+            <canvas id="personalityChart"></canvas>
+          </div>
+        </div>
+
         <div class="action-buttons">
-          <!-- <button class="action-btn" onclick="downloadAsImage()">📥 دانلود به صورت تصویر</button> -->
+         <button class="action-btn" onclick="downloadAsImage()">📥 دانلود به صورت تصویر</button>
           <button class="action-btn" onclick="shareResult()">کپی نتیجه</button>
           <button class="action-btn secondary" onclick="restartTest()">آزمون دوباره</button>
         </div>
       </div>
     </div>
   </div>
+  
+  
+
   <div class="svg-wrapper">
     <img src="assets/countries.svg" alt="countries vector" class="countries">
   </div>

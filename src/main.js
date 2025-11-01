@@ -789,6 +789,74 @@ const leaders = [
 ];
 
 
+// ============ توضیحات سوالات ============
+const questionExplanations = {
+  0: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال میزان مقاومت، انعطاف‌پذیری و استراتژی شما در برابر فشارهای خارجی را ارزیابی می‌کند. آیا شما فردی مقاوم و ایستا هستید یا معتقد به گفتگو و مذاکره؟"
+  },
+  1: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال نگرش شما نسبت به استقلال سیاسی و اتحادهای بین‌المللی را بررسی می‌کند. آیا ترجیح می‌دهید کاملاً مستقل باشید یا در قالب اتحادها عمل کنید؟"
+  },
+  2: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال میزان آزادی‌خواهی یا کنترل‌گرایی شما را در مورد رسانه‌ها و آزادی بیان نشان می‌دهد. آیا معتقد به آزادی کامل هستید یا به نظارت؟"
+  },
+  3: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال اولویت‌های اقتصادی شما را مشخص می‌کند. آیا بر صنعت، کشاورزی، فناوری یا ترکیبی از همه تمرکز دارید؟"
+  },
+  4: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال نحوه مدیریت بحران‌ها و اعتراضات مردمی را ارزیابی می‌کند. آیا به گفتگو، سرکوب، اصلاحات یا انتظار باور دارید؟"
+  },
+  5: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال نقش دین در سیاست از دید شما را نشان می‌دهد. آیا سکولار هستید، معنوی، یا به دولت دینی باور دارید؟"
+  },
+  6: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال دیدگاه شما درباره قدرت نظامی و ارتش را بررسی می‌کند. آیا به ارتش قوی، گسترش‌طلبی، یا کاهش بودجه نظامی باور دارید؟"
+  },
+  7: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال نگرش اقتصادی شما را مشخص می‌کند. آیا طرفدار اقتصاد دولتی، بازار آزاد، مختلط یا عدالت‌محور هستید؟"
+  },
+  8: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال استراتژی سیاست خارجی شما را نشان می‌دهد. آیا بر دیپلماسی، قدرت نظامی، یا ترکیب هر دو تکیه می‌کنید؟"
+  },
+  9: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال میزان مداراگرایی و احترام به حقوق اقلیت‌ها را ارزیابی می‌کند. آیا برابری‌خواه هستید یا امنیت را اولویت می‌دانید؟"
+  },
+  10: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال رویکرد شما به مبارزه با فساد را بررسی می‌کند. آیا به شفافیت، برخورد قاطع، اصلاحات تدریجی یا فرهنگ‌سازی باور دارید؟"
+  },
+  11: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال میزان همکاری بین‌المللی یا ملی‌گرایی شما را در بحران‌های جهانی نشان می‌دهد. آیا به همکاری باور دارید یا منافع ملی را اولویت می‌دانید؟"
+  },
+  12: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال سیاست خارجی شما نسبت به قدرت‌های بزرگ را مشخص می‌کند. آیا تعامل‌گرا، مقاوم، متحد یا مستقل هستید؟"
+  },
+  13: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال اهمیت توسعه علمی و فناوری در سیاست شما را نشان می‌دهد. آیا آن را اولویت اول می‌دانید یا کمتر اهمیت می‌دهید؟"
+  },
+  14: {
+    title: "این سوال چی رو می‌سنجه؟",
+    text: "این سوال ترجیح شما بین پوپولیسم و تکنوکراسی را مشخص می‌کند. آیا به حکومت مردمی باور دارید یا مدیریت نخبگان؟"
+  }
+};
+
+
+
+
+
 // نام‌های فارسی ویژگی‌ها برای نمایش
 const traitNames = {
   democratic: "دموکراتیک",
@@ -849,6 +917,138 @@ let state = {
   bestMatch: null,
   testStarted: false
 };
+
+
+
+// ============ نمودار شخصیتی Radar Chart ============
+function createPersonalityChart() {
+  const canvas = document.getElementById('personalityChart');
+  if (!canvas) return;
+
+  // حذف نمودار قبلی اگر وجود داشت
+  const existingChart = Chart.getChart(canvas);
+  if (existingChart) {
+    existingChart.destroy();
+  }
+
+  // انتخاب 6 ویژگی برتر کاربر
+  const userTopTraits = Object.entries(state.userTraits)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 6);
+
+  if (userTopTraits.length === 0) return;
+
+  // استخراج برچسب‌ها و مقادیر
+  const labels = userTopTraits.map(([trait]) => config.traitNames[trait] || trait);
+  const userData = userTopTraits.map(([, value]) => value);
+
+  // داده‌های رهبر منتخب برای همان ویژگی‌ها
+  const leaderData = userTopTraits.map(([trait]) => {
+    return state.bestMatch.traits[trait] || 0;
+  });
+
+  // تنظیمات نمودار
+  const ctx = canvas.getContext('2d');
+
+  new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'شما',
+          data: userData,
+          backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          borderColor: 'rgba(0, 0, 0, 0.8)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(0, 0, 0, 0.8)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(0, 0, 0, 0.8)',
+          pointRadius: 4,
+          pointHoverRadius: 6
+        },
+        {
+          label: state.bestMatch.name,
+          data: leaderData,
+          backgroundColor: 'rgba(100, 100, 100, 0.1)',
+          borderColor: 'rgba(100, 100, 100, 0.6)',
+          borderWidth: 2,
+          pointBackgroundColor: 'rgba(100, 100, 100, 0.6)',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: 'rgba(100, 100, 100, 0.6)',
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          borderDash: [5, 5]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: true,
+          position: 'bottom',
+          labels: {
+            font: {
+              family: 'Vazirmatn',
+              size: 12
+            },
+            padding: 15,
+            usePointStyle: true,
+            pointStyle: 'circle'
+          }
+        },
+        tooltip: {
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
+          titleFont: {
+            family: 'Vazirmatn',
+            size: 13
+          },
+          bodyFont: {
+            family: 'Vazirmatn',
+            size: 12
+          },
+          padding: 12,
+          cornerRadius: 8,
+          displayColors: true,
+          rtl: true,
+          textDirection: 'rtl'
+        }
+      },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: Math.max(...userData, ...leaderData) + 2,
+          ticks: {
+            stepSize: 1,
+            font: {
+              family: 'Vazirmatn',
+              size: 10
+            },
+            backdropColor: 'transparent'
+          },
+          pointLabels: {
+            font: {
+              family: 'Vazirmatn',
+              size: 12,
+              weight: '500'
+            },
+            color: '#333'
+          },
+          grid: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          },
+          angleLines: {
+            color: 'rgba(0, 0, 0, 0.1)'
+          }
+        }
+      }
+    }
+  });
+}
 
 function showToast(message) {
   const toast = document.createElement('div');
@@ -978,14 +1178,27 @@ function renderQuestion() {
   if (!q) return;
 
   const container = document.getElementById('questionContainer');
+  const explanation = questionExplanations[state.currentQuestion];
 
   const html = `
     <div class="question-block">
-      <div class="question-text">${q.question}</div>
-      <div class="options">
+      <div class="question-header">
+        <div class="question-text-with-icon">${q.question}</div>
+        <button class="question-info-btn" id="infoBtn" aria-label="توضیحات سوال">
+          ?
+        </button>
+      </div>
+      
+      ${explanation ? `
+        <div class="question-tooltip" id="questionTooltip">
+          <div class="tooltip-title">${explanation.title}</div>
+          <div class="tooltip-text">${explanation.text}</div>
+        </div>
+      ` : ''}
+      
+      <div class="options" id="optionsContainer">
         ${q.options.map((opt, idx) => `
-          <div class="option ${state.answers[state.currentQuestion] === idx ? 'selected' : ''}"
-               onclick="selectOption(${idx})">
+          <div class="option ${state.answers[state.currentQuestion] === idx ? 'selected' : ''}" data-index="${idx}">
             ${opt.text}
           </div>
         `).join('')}
@@ -994,11 +1207,45 @@ function renderQuestion() {
   `;
 
   container.innerHTML = html;
+
+  // اضافه کردن event listener برای دکمه "?"
+  const infoBtn = document.getElementById('infoBtn');
+  if (infoBtn) {
+    infoBtn.addEventListener('click', toggleQuestionInfo);
+  }
+
+  // اضافه کردن event listener برای گزینه‌ها
+  const optionsContainer = document.getElementById('optionsContainer');
+  if (optionsContainer) {
+    optionsContainer.addEventListener('click', function (e) {
+      const option = e.target.closest('.option');
+      if (option) {
+        const index = parseInt(option.dataset.index);
+        selectOption(index);
+      }
+    });
+  }
 }
 
 function selectOption(index) {
   state.answers[state.currentQuestion] = index;
-  renderQuestion();
+
+  // آپدیت کردن کلاس selected
+  const options = document.querySelectorAll('.option');
+  options.forEach((opt, idx) => {
+    if (idx === index) {
+      opt.classList.add('selected');
+    } else {
+      opt.classList.remove('selected');
+    }
+  });
+}
+
+function toggleQuestionInfo() {
+  const tooltip = document.getElementById('questionTooltip');
+  if (tooltip) {
+    tooltip.classList.toggle('active');
+  }
 }
 
 function nextQuestion() {
@@ -1216,6 +1463,10 @@ function loadResultsFromStorage() {
 
     document.getElementById('traitsGrid').innerHTML = traitsHtml;
 
+    setTimeout(() => {
+      createPersonalityChart();
+    }, 300);
+
     console.log('نتایج با موفقیت از localStorage بارگذاری شد');
   } catch (error) {
     console.error('خطا در بارگذاری نتایج:', error);
@@ -1227,3 +1478,150 @@ function loadResultsFromStorage() {
     document.getElementById('resultScreen').classList.remove('active');
   }
 }
+
+// ============ دانلود تصویر نتیجه ============
+function downloadAsImage() {
+  const match = state.bestMatch;
+  if (!match) return;
+
+  showToast('در حال آماده‌سازی تصویر...');
+
+  // ساخت المنت برای دانلود
+  const downloadDiv = document.createElement('div');
+  downloadDiv.className = 'download-preview';
+  downloadDiv.id = 'downloadPreview';
+
+  // گرفتن 4 ویژگی برتر
+  const topTraits = Object.entries(match.traits || {})
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 4);
+
+  downloadDiv.innerHTML = `
+    <div class="preview-content">
+      <div class="preview-header"
+        <div class="preview-name">${match.name}</div>
+        <div class="preview-title">${match.title}</div>
+      </div>
+
+      <div class="preview-match">
+        <div class="preview-match-score">${match.percentage}%</div>
+        <div class="preview-match-label">درصد تطابق</div>
+      </div>
+
+      <div class="preview-description">${match.description}</div>
+
+      <div class="preview-traits">
+        ${topTraits.map(([name, score]) => `
+          <div class="preview-trait-item">
+            <div class="preview-trait-name">${config.traitNames[name] || name}</div>
+            <div class="preview-trait-bar">
+              <div class="preview-trait-fill" style="width: ${(score / 4) * 100}%"></div>
+            </div>
+            <div class="preview-trait-score">${score}/4</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="preview-footer">
+        <div class="preview-footer-text">نتیجه تست شخصیت سیاسی</div>
+        <div class="preview-footer-url">strategic.imalixd.ir</div>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(downloadDiv);
+
+  // استفاده از html2canvas برای تبدیل به تصویر
+  setTimeout(() => {
+    html2canvas(downloadDiv, {
+      backgroundColor: null,
+      scale: 2,
+      logging: false,
+      useCORS: true
+    }).then(canvas => {
+      // تبدیل canvas به blob
+      canvas.toBlob(blob => {
+        // ساخت لینک دانلود
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `personality-test-${match.name}.png`;
+        link.click();
+
+        // پاک کردن
+        URL.revokeObjectURL(url);
+        document.body.removeChild(downloadDiv);
+
+        showToast('تصویر با موفقیت دانلود شد! ✓');
+      });
+    }).catch(error => {
+      console.error('خطا در ساخت تصویر:', error);
+      showToast('خطا در ساخت تصویر');
+      document.body.removeChild(downloadDiv);
+    });
+  }, 100);
+}
+
+
+// const leaderTimeline = {
+//   "کوروش بزرگ": [
+//     { year: "۵۵۹ ق.م", event: "شورش علیه آستیاگ و تأسیس امپراتوری هخامنشی" },
+//     { year: "۵۴۷ ق.م", event: "فتح لیدیا و شکست کروسوس" },
+//     { year: "۵۳۹ ق.م", event: "فتح بابل و آزادی یهودیان" },
+//     { year: "۵۳۰ ق.م", event: "درگذشت در جنگ با ماساگت‌ها" }
+//   ],
+//   "داریوش بزرگ": [
+//     { year: "۵۲۲ ق.م", event: "به قدرت رسیدن و سرکوب شورش‌ها" },
+//     { year: "۵۱۸ ق.م", event: "تقسیم امپراتوری به ۲۰ ساتراپی" },
+//     { year: "۵۱۳ ق.م", event: "لشکرکشی به سرزمین سکاها" },
+//     { year: "۴۹۰ ق.م", event: "جنگ ماراتن" }
+//   ],
+//   "محمد مصدق": [
+//     { year: "۱۹۵۱", event: "انتخاب به عنوان نخست‌وزیر ایران" },
+//     { year: "۱۹۵۱", event: "ملی شدن صنعت نفت ایران" },
+//     { year: "۱۹۵۲", event: "انتخاب به عنوان مرد سال توسط تایم" },
+//     { year: "۱۹۵۳", event: "کودتای ۲۸ مرداد و سرنگونی" }
+//   ],
+//   "روح‌الله خمینی": [
+//     { year: "۱۹۶۳", event: "قیام ۱۵ خرداد و تبعید" },
+//     { year: "۱۹۷۹", event: "بازگشت به ایران و پیروزی انقلاب" },
+//     { year: "۱۹۷۹", event: "تأسیس جمهوری اسلامی ایران" },
+//     { year: "۱۹۸۹", event: "درگذشت در تهران" }
+//   ],
+//   "آبراهام لینکلن": [
+//     { year: "۱۸۶۱", event: "انتخاب به عنوان رئیس‌جمهور" },
+//     { year: "۱۸۶۱", event: "آغاز جنگ داخلی آمریکا" },
+//     { year: "۱۸۶۳", event: "اعلامیه آزادی بردگان" },
+//     { year: "۱۸۶۵", event: "ترور در تئاتر فورد" }
+//   ],
+//   "نلسون ماندلا": [
+//     { year: "۱۹۶۴", event: "محکومیت به حبس ابد" },
+//     { year: "۱۹۹۰", event: "آزادی از زندان پس از ۲۷ سال" },
+//     { year: "۱۹۹۳", event: "دریافت جایزه نوبل صلح" },
+//     { year: "۱۹۹۴", event: "انتخاب به عنوان رئیس‌جمهور آفریقای جنوبی" }
+//   ],
+//   "مهاتما گاندی": [
+//     { year: "۱۹۱۵", event: "بازگشت به هند از آفریقای جنوبی" },
+//     { year: "۱۹۳۰", event: "راهپیمایی نمک" },
+//     { year: "۱۹۴۲", event: "جنبش ترک هند" },
+//     { year: "۱۹۴۸", event: "ترور توسط ناتورام گادسه" }
+//   ],
+//   "وینستون چرچیل": [
+//     { year: "۱۹۴۰", event: "انتخاب به عنوان نخست‌وزیر بریتانیا" },
+//     { year: "۱۹۴۰", event: "سخنرانی معروف «ما هرگز تسلیم نخواهیم شد»" },
+//     { year: "۱۹۴۵", event: "پیروزی در جنگ جهانی دوم" },
+//     { year: "۱۹۵۳", event: "دریافت جایزه نوبل ادبیات" }
+//   ],
+//   "مصطفی کمال آتاتورک": [
+//     { year: "۱۹۲۳", event: "تأسیس جمهوری ترکیه" },
+//     { year: "۱۹۲۴", event: "لغو خلافت عثمانی" },
+//     { year: "۱۹۲۸", event: "تغییر الفبا از عربی به لاتین" },
+//     { year: "۱۹۳۴", event: "حق رأی برای زنان" }
+//   ],
+//   "دونالد ترامپ": [
+//     { year: "۲۰۱۶", event: "پیروزی در انتخابات ریاست‌جمهوری" },
+//     { year: "۲۰۱۷", event: "خروج از توافق پاریس آب و هوا" },
+//     { year: "۲۰۱۸", event: "دیدار با کیم جونگ اون" },
+//     { year: "۲۰۲۰", event: "شکست در انتخابات مجدد" }
+//   ]
+// };
