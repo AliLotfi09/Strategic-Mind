@@ -1169,6 +1169,10 @@ function startTest() {
   document.getElementById('introScreen').classList.add('hidden');
   document.getElementById('quizScreen').classList.add('active');
 
+  if (gaugeElement) {
+    gaugeElement.style.display = 'block';
+  }
+
   renderQuestion();
   updateProgress();
 }
@@ -1359,6 +1363,11 @@ function updateProgress() {
 
 function showResults() {
   try {
+
+    const gaugeElement = document.getElementById('predictionGauge');
+    if (gaugeElement) {
+      gaugeElement.style.display = 'none';
+    }
     // محاسبه نتیجه
     findBestMatch();
 
