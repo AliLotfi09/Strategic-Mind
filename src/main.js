@@ -1173,6 +1173,74 @@ function startTest() {
   updateProgress();
 }
 
+// ============ پیش‌بینی Real-time ============
+function updateRealtimePrediction() {
+  // چک کنیم حداقل 3 سوال جواب داده شده
+  const answeredCount = state.answers.filter(a => a !== null).length;
+
+  if (answeredCount < 3) {
+    return; // خیلی زوده برای پیش‌بینی
+  }
+
+  // محاسبه traits فعلی
+  calculateUserTraitsVector();
+
+  const userVector = state.userTraits;
+
+  // محاسبه امتیاز برای همه رهبران
+  const predictions = config.leaders.map(leader => {
+    const leaderVector = leader.traits || {};
+
+    const cosineScore = cosineSimilarity(userVector, leaderVector);
+    const euclideanDist = euclideanDistance(userVector, leaderVector);
+    const manhattanDist = manhattanDistance(userVector, leaderVector);
+
+    const maxDist = 100;
+    const euclideanNorm = 1 - Math.min(euclideanDist / maxDist, 1);
+    const manhattanNorm = 1 - Math.min(manhattanDist / (maxDist * 2), 1);
+
+    const combinedScore =
+      (cosineScore * 0.5) +
+      (euclideanNorm * 0.35) +
+      (manhattanNorm * 0.15);
+
+    return {
+      leader: leader,
+      score: combinedScore,
+      percentage: Math.max(0, Math.min(100, Math.round(combinedScore * 100)))
+    };
+  });
+
+  // مرتب‌سازی بر اساس امتیاز
+  predictions.sort((a, b) => b.score - a.score);
+
+  // نمایش 3 رهبر برتر
+  const top3 = predictions.slice(0, 3);
+
+  const gaugeContent = document.getElementById('gaugeContent');
+  if (!gaugeContent) return;
+
+  const html = `
+    <div class="gauge-predictions">
+      ${top3.map((pred, index) => `
+        <div class="prediction-item">
+          <div class="prediction-rank">${index + 1}</div>
+          <div class="prediction-info">
+            <div class="prediction-name">${pred.leader.name}</div>
+            <div class="prediction-title">${pred.leader.title}</div>
+          </div>
+          <div class="prediction-bar-container">
+            <div class="prediction-bar" style="width: ${pred.percentage}%"></div>
+          </div>
+          <div class="prediction-percent">${pred.percentage}%</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+
+  gaugeContent.innerHTML = html;
+}
+
 function renderQuestion() {
   const q = config.questions[state.currentQuestion];
   if (!q) return;
@@ -1239,6 +1307,12 @@ function selectOption(index) {
       opt.classList.remove('selected');
     }
   });
+
+  // ⭐ آپدیت پیش‌بینی Real-time
+  setTimeout(() => {
+    updateRealtimePrediction();
+  }, 300);
+
 }
 
 function toggleQuestionInfo() {

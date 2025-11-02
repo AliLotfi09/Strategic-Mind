@@ -110,6 +110,19 @@
       </div>
     </div>
 
+    <!-- Real-time Prediction Gauge -->
+    <div class="prediction-gauge" id="predictionGauge">
+      <div class="gauge-header">
+        <span class="gauge-icon">🎯</span>
+        <span class="gauge-label">پیش‌بینی فعلی</span>
+      </div>
+      <div class="gauge-content" id="gaugeContent">
+        <div class="gauge-placeholder">
+          <span>پس از پاسخ به چند سوال، پیش‌بینی نمایش داده می‌شود</span>
+        </div>
+      </div>
+    </div>
+
     <!-- RESULTS -->
     <div id="resultScreen">
       <div class="result-wrapper">
@@ -141,15 +154,15 @@
         </div>
 
         <div class="action-buttons">
-         <button class="action-btn" onclick="downloadAsImage()">📥 دانلود به صورت تصویر</button>
+          <button class="action-btn" onclick="downloadAsImage()">📥 دانلود به صورت تصویر</button>
           <button class="action-btn" onclick="shareResult()">کپی نتیجه</button>
           <button class="action-btn secondary" onclick="restartTest()">آزمون دوباره</button>
         </div>
       </div>
     </div>
   </div>
-  
-  
+
+
 
   <div class="svg-wrapper">
     <img src="assets/countries.svg" alt="countries vector" class="countries">
