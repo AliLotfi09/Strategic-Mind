@@ -141,6 +141,7 @@ const leaders = [
     name: "کوروش بزرگ",
     title: "بنیان‌گذار امپراتوری هخامنشی",
     era: "۵۵۹-۵۳۰ ق.م",
+    image: "https://media.sarpoosh.com/images/article/picture/cyrus-the-great-photos01.jpg",
     traits: { tolerant: 4, strategic: 4, diplomatic: 3, nationalist: 2, balanced: 3, peaceful: 3, egalitarian: 3 },
     description: "شما مانند کوروش، به تسامح، انسانیت و بنیان‌گذاری یک تمدن بزرگ باور دارید.",
     politicalParty: "—",
@@ -152,6 +153,7 @@ const leaders = [
     name: "داریوش بزرگ",
     title: "شاهنشاه هخامنشی",
     era: "۵۲۲-۴۸۶ ق.م",
+    image: "https://ketabnak.com/images/thumb/318x318/persons/64243.webp",
     traits: { strategic: 4, pragmatic: 4, balanced: 3, authoritarian: 3, nationalist: 2, modernist: 3 },
     description: "شما مانند داریوش، نظم، قانون و توسعه اداری را سرلوحه دارید.",
     politicalParty: "—",
@@ -163,6 +165,7 @@ const leaders = [
     name: "نادرشاه افشار",
     title: "پادشاه ایران",
     era: "۱۷۳۶-۱۷۴۷",
+    image: "https://api2.kojaro.com/media/2021-6-52c9531b-dc15-4a23-bfbe-0796081b9195-67c4610bc1067c5ba7676c1f?w=1200&q=80",
     traits: { militarist: 4, nationalist: 3, authoritarian: 3, strategic: 3, aggressive: 2 },
     description: "شما مانند نادرشاه، رهبر جنگجو و فتح‌طلب هستید.",
     politicalParty: "—",
@@ -174,6 +177,7 @@ const leaders = [
     name: "امیرکبیر",
     title: "صدر اعظم ایران",
     era: "۱۸۴۸-۱۸۵۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/AmirKabir_naghashbashi.jpg/250px-AmirKabir_naghashbashi.jpg",
     traits: { reformist: 4, nationalist: 3, modernist: 3, pragmatic: 3, balanced: 2 },
     description: "شما مانند امیرکبیر، اصلاحات، آموزش و پیشرفت ملی را دنبال می‌کنید.",
     politicalParty: "—",
@@ -185,6 +189,7 @@ const leaders = [
     name: "میرزا کوچک‌خان جنگلی",
     title: "رهبر جنبش جنگل",
     era: "۱۹۱۴-۱۹۲۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Mirza_Kochak_Khan.jpg/250px-Mirza_Kochak_Khan.jpg",
     traits: { nationalist: 4, resistant: 3, spiritual: 2, socialist: 2, independent: 3 },
     description: "شما مانند میرزا کوچک‌خان، رهبر انقلابی و ملی‌گرای عدالت‌خواه هستید.",
     politicalParty: "جنبش جنگل",
@@ -196,6 +201,7 @@ const leaders = [
     name: "محمد مصدق",
     title: "نخست‌وزیر ایران",
     era: "۱۹۵۱-۱۹۵۳",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Portrait_of_Mohammad_Mosaddegh_-_circa_1952.jpg/250px-Portrait_of_Mohammad_Mosaddegh_-_circa_1952.jpg",
     traits: { democratic: 4, nationalist: 3, liberal: 3, independent: 4, diplomatic: 3 },
     description: "شما مانند مصدق، استقلال سیاسی و اقتصادی را با تکیه بر مردم‌سالاری دنبال می‌کنید.",
     politicalParty: "جبهه ملی",
@@ -207,6 +213,7 @@ const leaders = [
     name: "رضا شاه پهلوی",
     title: "شاه ایران",
     era: "۱۹۲۵-۱۹۴۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Reza_shah_uniform.jpg/250px-Reza_shah_uniform.jpg",
     traits: { authoritarian: 4, nationalist: 4, modernist: 3, militarist: 2, pragmatic: 2 },
     description: "شما مانند رضا شاه، به تمرکز قدرت، نوسازی و اقتدار ملی اهمیت می‌دهید.",
     politicalParty: "پهلوی",
@@ -218,6 +225,7 @@ const leaders = [
     name: "محمدرضا شاه پهلوی",
     title: "آخرین شاه ایران",
     era: "۱۹۴۱-۱۹۷۹",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Shah_Mohammad_Reza_Pahlavi%2C_1973.jpg/250px-Shah_Mohammad_Reza_Pahlavi%2C_1973.jpg",
     traits: { modernist: 3, authoritarian: 3, nationalist: 3, capitalist: 2, dependent: 2 },
     description: "شما مانند محمدرضا شاه، به مدرنیزاسیون و اتحاد با غرب باور دارید.",
     politicalParty: "پهلوی",
@@ -229,6 +237,7 @@ const leaders = [
     name: "روح‌الله خمینی",
     title: "رهبر انقلاب ایران",
     era: "۱۹۷۹-۱۹۸۹",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { spiritual: 4, theocratic: 4, nationalist: 3, authoritarian: 3, resistant: 3 },
     description: "شما مانند خمینی، سیاست را با ایدئولوژی و دین پیوند می‌زنید.",
     politicalParty: "جمهوری اسلامی",
@@ -240,6 +249,7 @@ const leaders = [
     name: "علی خامنه‌ای",
     title: "رهبر جمهوری اسلامی ایران",
     era: "۱۹۸۹-اکنون",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { spiritual: 3, nationalist: 3, authoritarian: 3, strategic: 3, resistant: 3 },
     description: "شما مانند خامنه‌ای، بر ثبات سیاسی، استقلال و ایدئولوژی تاکید دارید.",
     politicalParty: "جمهوری اسلامی",
@@ -251,6 +261,7 @@ const leaders = [
     name: "اکبر هاشمی رفسنجانی",
     title: "رئیس‌جمهور ایران",
     era: "۱۹۸۹-۱۹۹۷",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { pragmatic: 4, moderate: 3, capitalist: 2, nationalist: 2, balanced: 3 },
     description: "شما مانند رفسنجانی، عملگرایی و توسعه اقتصادی را در سیاست در اولویت دارید.",
     politicalParty: "کارگزاران سازندگی",
@@ -262,6 +273,7 @@ const leaders = [
     name: "سید محمد خاتمی",
     title: "رئیس‌جمهور ایران",
     era: "۱۹۹۷-۲۰۰۵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { reformist: 4, liberal: 3, democratic: 3, moderate: 3, diplomatic: 3 },
     description: "شما مانند خاتمی، به اصلاحات، گفت‌وگوی تمدن‌ها و آزادی‌های مدنی باور دارید.",
     politicalParty: "اصلاح‌طلبان",
@@ -273,6 +285,7 @@ const leaders = [
     name: "محمود احمدی‌نژاد",
     title: "رئیس‌جمهور ایران",
     era: "۲۰۰۵-۲۰۱۳",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { populist: 4, nationalist: 3, confrontational: 3, authoritarian: 2 },
     description: "شما مانند احمدی‌نژاد، با گفتمان پوپولیستی و تقابل با غرب پیش می‌روید.",
     politicalParty: "اصولگرایان",
@@ -284,6 +297,7 @@ const leaders = [
     name: "مسعود پزشکیان",
     title: "رئیس‌جمهور ایران",
     era: "۲۰۲۴-اکنون",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { reformist: 3, moderate: 3, democratic: 2, pragmatic: 3 },
     description: "شما مانند پزشکیان، به اعتدال، اصلاحات اجتماعی و گفت‌وگو باور دارید.",
     politicalParty: "اصلاح‌طلبان",
@@ -295,6 +309,7 @@ const leaders = [
     name: "جورج واشنگتن",
     title: "اولین رئیس‌جمهور آمریکا",
     era: "۱۷۸۹-۱۷۹۷",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { democratic: 4, principled: 4, moderate: 3, nationalist: 3, balanced: 3 },
     description: "شما مانند واشنگتن، بنیان‌گذار دموکراسی و رهبر اصولی هستید.",
     politicalParty: "بی‌طرف",
@@ -306,6 +321,7 @@ const leaders = [
     name: "آبراهام لینکلن",
     title: "شانزدهمین رئیس‌جمهور آمریکا",
     era: "۱۸۶۱-۱۸۶۵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { egalitarian: 4, principled: 4, democratic: 3, strategic: 3 },
     description: "شما مانند لینکلن، برای برابری، وحدت ملی و عدالت می‌جنگید.",
     politicalParty: "جمهوری‌خواه",
@@ -317,6 +333,7 @@ const leaders = [
     name: "فرانکلین روزولت",
     title: "سی و دومین رئیس‌جمهور آمریکا",
     era: "۱۹۳۳-۱۹۴۵",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { pragmatic: 4, reformist: 4, democratic: 3, strategic: 4, socialist: 2 },
     description: "شما مانند روزولت، رهبر بحران‌ها و حامی رفاه اجتماعی هستید.",
     politicalParty: "دموکرات",
@@ -328,6 +345,7 @@ const leaders = [
     name: "جان اف کندی",
     title: "سی و پنجمین رئیس‌جمهور آمریکا",
     era: "۱۹۶۱-۱۹۶۳",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { modernist: 3, diplomatic: 3, liberal: 3, strategic: 3 },
     description: "شما مانند کندی، جوان، کاریزماتیک و طرفدار پیشرفت هستید.",
     politicalParty: "دموکرات",
@@ -339,6 +357,7 @@ const leaders = [
     name: "رونالد ریگان",
     title: "چهلمین رئیس‌جمهور آمریکا",
     era: "۱۹۸۱-۱۹۸۹",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { capitalist: 4, conservative: 4, militarist: 2, pragmatic: 3 },
     description: "شما مانند ریگان، محافظه‌کار، طرفدار بازار آزاد و قدرت نظامی هستید.",
     politicalParty: "جمهوری‌خواه",
@@ -350,6 +369,7 @@ const leaders = [
     name: "دونالد ترامپ",
     title: "چهل و پنجمین رئیس‌جمهور آمریکا",
     era: "۲۰۱۷-۲۰۲۱",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { populist: 4, nationalist: 4, capitalist: 3, confrontational: 3 },
     description: "شما مانند ترامپ، پوپولیست، ملی‌گرا و تاجر هستید.",
     politicalParty: "جمهوری‌خواه",
@@ -361,6 +381,7 @@ const leaders = [
     name: "جو بایدن",
     title: "چهل و ششمین رئیس‌جمهور آمریکا",
     era: "۲۰۲۱-اکنون",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { moderate: 4, diplomatic: 3, pragmatic: 3, democratic: 3 },
     description: "شما مانند بایدن، با تجربه، معتدل و طرفدار دیپلماسی سنتی هستید.",
     politicalParty: "دموکرات",
@@ -372,6 +393,7 @@ const leaders = [
     name: "ویل‌هلم دوم آلمان",
     title: "آخرین قیصر آلمان",
     era: "۱۸۸۸-۱۹۱۸",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Portrait_of_Ruhollah_Khomeini.jpg/250px-Portrait_of_Ruhollah_Khomeini.jpg",
     traits: { militarist: 4, nationalist: 4, authoritarian: 3, aggressive: 3 },
     description: "شما مانند قیصر ویلهلم، امپراتور جاه‌طلب و نظامی‌گرا هستید.",
     politicalParty: "امپراتوری آلمان",
@@ -1050,6 +1072,10 @@ function createPersonalityChart() {
   });
 }
 
+
+document.getElementById("resultImage").src = result.image;
+
+
 function showToast(message) {
   const toast = document.createElement('div');
   toast.className = 'toast';
@@ -1169,6 +1195,7 @@ function startTest() {
   document.getElementById('introScreen').classList.add('hidden');
   document.getElementById('quizScreen').classList.add('active');
 
+  const gaugeElement = document.getElementById('predictionGauge');
   if (gaugeElement) {
     gaugeElement.style.display = 'block';
   }
@@ -1363,15 +1390,15 @@ function updateProgress() {
 
 function showResults() {
   try {
-
     const gaugeElement = document.getElementById('predictionGauge');
     if (gaugeElement) {
       gaugeElement.style.display = 'none';
     }
+
     // محاسبه نتیجه
     findBestMatch();
 
-    // ذخیره در localStorage قبل از هر چیز
+    // ذخیره در localStorage
     try {
       localStorage.setItem('testResult', JSON.stringify(state.bestMatch));
       localStorage.setItem('testAnswers', JSON.stringify(state.answers));
@@ -1393,6 +1420,13 @@ function showResults() {
     document.getElementById('resultTitle').textContent = match.title || '';
     document.getElementById('matchPercent').textContent = match.percentage + '%';
     document.getElementById('resultDescription').textContent = match.description || '';
+
+    // ✅ نمایش تصویر رهبر (این خط جدید اضافه شده)
+    const resultImage = document.getElementById('resultImage');
+    if (resultImage) {
+      resultImage.src = match.image || 'fallback.jpg'; // fallback برای مواقعی که تصویر تعریف نشده
+      resultImage.alt = match.name || 'نتیجه تست';
+    }
 
     // نمایش جزئیات
     const details = `
@@ -1420,6 +1454,11 @@ function showResults() {
 
     document.getElementById('traitsGrid').innerHTML = traitsHtml;
 
+    // ⭐ ایجاد نمودار شخصیتی
+    setTimeout(() => {
+      createPersonalityChart();
+    }, 300);
+
     window.scrollTo(0, 0);
 
   } catch (error) {
@@ -1427,6 +1466,7 @@ function showResults() {
     showToast('خطا در نمایش نتایج. لطفا دوباره تلاش کنید.');
   }
 }
+
 
 function shareResult() {
   const match = state.bestMatch;
@@ -1476,6 +1516,27 @@ function restartTest() {
   document.getElementById('introScreen').classList.remove('hidden');
   document.getElementById('quizScreen').classList.remove('active');
 
+  // ⭐ ریست کردن Gauge به حالت اولیه
+  const gaugeContent = document.getElementById('gaugeContent');
+  if (gaugeContent) {
+    gaugeContent.innerHTML = `
+      <div class="gauge-placeholder">
+        <span>پس از پاسخ به چند سوال، پیش‌بینی نمایش داده می‌شود</span>
+      </div>
+    `;
+  }
+
+  // ⭐ نمایش دوباره Gauge
+  const gaugeElement = document.getElementById('predictionGauge');
+  if (gaugeElement) {
+    gaugeElement.style.display = 'block';
+  }
+
+  // برگشت به صفحه اول
+  document.getElementById('resultScreen').classList.remove('active');
+  document.getElementById('introScreen').classList.remove('hidden');
+  document.getElementById('quizScreen').classList.remove('active');
+
   window.scrollTo(0, 0);
 }
 
@@ -1506,7 +1567,13 @@ window.addEventListener('DOMContentLoaded', function () {
 // تابع بارگذاری نتایج از localStorage
 function loadResultsFromStorage() {
   try {
+    const gaugeElement = document.getElementById('predictionGauge');
+    if (gaugeElement) {
+      gaugeElement.style.display = 'none';
+    }
+
     // مخفی کردن صفحه intro
+    document.getElementById('introScreen').classList.add('hidden');
     document.getElementById('introScreen').classList.add('hidden');
 
     // نمایش صفحه نتایج
