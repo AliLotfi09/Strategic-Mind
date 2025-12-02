@@ -1,0 +1,70 @@
+{
+  "name": "تست شخصیت سیاسی",
+  "short_name": "Political Test",
+  "description": "کشف کنید شما شبیه کدام رهبر استراتژیست هستید",
+  "lang": "fa",
+  "dir": "rtl",
+  "theme_color": "#000000",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-maskable-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/pwa-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot1.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot2.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "categories": ["education", "entertainment", "lifestyle"],
+  "shortcuts": [
+    {
+      "name": "شروع آزمون",
+      "short_name": "آزمون",
+      "description": "شروع تست شخصیت سیاسی",
+      "url": "/?start_test=true",
+      "icons": [{ "src": "/icon-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "مشاهده نتایج",
+      "short_name": "نتایج",
+      "description": "مشاهده نتایج آخرین آزمون",
+      "url": "/results",
+      "icons": [{ "src": "/results-icon-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}
