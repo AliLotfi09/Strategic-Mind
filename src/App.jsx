@@ -98,7 +98,6 @@ function App() {
     );
   }
 
-  // حالت Results (نتیجه)
   if (testCompleted && result) {
     return (
       <div className="app-container">
@@ -121,7 +120,6 @@ function App() {
     );
   }
 
-  // حالت بازگشت به نتیجه ذخیره شده
   if (result) {
     return (
       <div className="app-container">
