@@ -1,5 +1,7 @@
-import React from 'react';
-import '../App.css';
+import React from "react";
+import "../styles/App.css";
+import { Link } from 'react-router-dom';
+
 
 const IntroScreen = ({ onStart }) => {
   return (
@@ -16,7 +18,9 @@ const IntroScreen = ({ onStart }) => {
         <div className="intro-benefits">
           <div className="benefit-item">
             <div className="benefit-check">✓</div>
-            <div className="benefit-text">۱۵ سوال استراتژیک برای تحلیل شخصیت</div>
+            <div className="benefit-text">
+              ۱۵ سوال استراتژیک برای تحلیل شخصیت
+            </div>
           </div>
           <div className="benefit-item">
             <div className="benefit-check">✓</div>
@@ -31,7 +35,9 @@ const IntroScreen = ({ onStart }) => {
         <button className="start-btn" onClick={onStart}>
           شروع آزمون
         </button>
-
+        <Link to="/un">
+          <button className="start-btn">سازمان ملل</button>
+        </Link>
         <div className="intro-disclaimer">
           این تست صرفاً برای سرگرمی و بر اساس تحلیل شخصیت است
         </div>

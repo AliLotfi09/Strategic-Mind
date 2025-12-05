@@ -9,7 +9,7 @@ import {
   TrendingUp,
   Shield
 } from 'lucide-react';
-import '../App.css';
+import "../styles/App.css";
 
 const IntroSlides = ({ onComplete }) => {
   const [currentSlide, setCurrentSlide] = useState(0);

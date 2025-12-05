@@ -1,144 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import './App.css';
-import useTestState from './hooks/useTestState';
-import IntroSlides from './components/IntroSlides';
-import IntroScreen from './components/IntroScreen';
-import QuizScreen from './components/QuizScreen';
-import ResultScreen from './components/ResultScreen';
-import PredictionGauge from './components/PredictionGauge';
-import Toast from './components/Toast';
-import { questionExplanations } from './data';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import PoliticalTestApp from './apps/politicalTest/PoliticalTestApp.jsx';
+import UnitedNations from './apps/unitedNations/UnitedNations.jsx';
 
 function App() {
-  const [showIntroSlides, setShowIntroSlides] = useState(true);
-  const [showMainIntro, setShowMainIntro] = useState(false);
-
-  const {
-    // State
-    currentQuestion,
-    answers,
-    testStarted,
-    testCompleted,
-    userTraits,
-    result,
-    showToast,
-    
-    // Data
-    questions,
-    traitNames,
-    
-    // Actions
-    startTest,
-    handleAnswer,
-    nextQuestion,
-    prevQuestion,
-    restartTest,
-    shareResult,
-    downloadResult,
-    closeToast
-  } = useTestState();
-
-  // بررسی اولین بار ورود کاربر
-  useEffect(() => {
-    const hasSeenIntro = localStorage.getItem('hasSeenIntro');
-    if (hasSeenIntro === 'true') {
-      setShowIntroSlides(false);
-      setShowMainIntro(true);
-    }
-  }, []);
-
-  const handleIntroComplete = () => {
-    localStorage.setItem('hasSeenIntro', 'true');
-    setShowIntroSlides(false);
-    setShowMainIntro(true);
-  };
-
-  // حالت Intro Slides
-  if (showIntroSlides) {
-    return <IntroSlides onComplete={handleIntroComplete} />;
-  }
-
-  // حالت Intro اصلی
-  if (!testStarted && !result && showMainIntro) {
-    return (
-      <div className="app-container">
-        <IntroScreen onStart={startTest} />
-      </div>
-    );
-  }
-
-  // حالت Quiz (سوالات)
-  if (testStarted && !testCompleted) {
-    return (
-      <div className="app-container">
-        <div className="main-content">
-          <QuizScreen
-            question={questions[currentQuestion]}
-            questionIndex={currentQuestion}
-            totalQuestions={questions.length}
-            selectedAnswer={answers[currentQuestion]}
-            onSelectAnswer={(optionIndex) => handleAnswer(currentQuestion, optionIndex)}
-            onNext={nextQuestion}
-            onPrev={prevQuestion}
-            explanation={questionExplanations[currentQuestion]}
-          />
-        </div>
-        
-        <div className="sidebar">
-          <PredictionGauge answers={answers} />
-        </div>
-
-        {showToast && (
-          <Toast 
-            message={showToast} 
-            onClose={closeToast}
-          />
-        )}
-      </div>
-    );
-  }
-
-  if (testCompleted && result) {
-    return (
-      <div className="app-container">
-        <ResultScreen
-          result={result}
-          userTraits={userTraits}
-          traitNames={traitNames}
-          onRestart={restartTest}
-          onShare={shareResult}
-          onDownload={downloadResult}
-        />
-        
-        {showToast && (
-          <Toast 
-            message={showToast} 
-            onClose={closeToast}
-          />
-        )}
-      </div>
-    );
-  }
-
-  if (result) {
-    return (
-      <div className="app-container">
-        <ResultScreen
-          result={result}
-          userTraits={userTraits}
-          traitNames={traitNames}
-          onRestart={() => {
-            setShowMainIntro(true);
-            startTest();
-          }}
-          onShare={shareResult}
-          onDownload={downloadResult}
-        />
-      </div>
-    );
-  }
-
-  return null;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<PoliticalTestApp />} />
+        <Route path='/un' element={<UnitedNations />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
