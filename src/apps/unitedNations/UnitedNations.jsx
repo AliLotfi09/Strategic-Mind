@@ -35,11 +35,47 @@ const UnitedNations = () => {
 
   const percentages = useMemo(() => {
     const percentages = {};
+    const answeredCount = answers.filter(a => a !== null).length;
+    
+    if (answeredCount === 0) {
+      Object.keys(counts).forEach(key => {
+        percentages[key] = 0;
+      });
+      return percentages;
+    }
+    
+    let rawPercentages = {};
+    let sum = 0;
+    
     Object.keys(counts).forEach(key => {
-      percentages[key] = totalAnswered > 0 ? Math.round((counts[key] / totalAnswered) * 100) : 0;
+      const rawPercent = (counts[key] / answeredCount) * 100;
+      rawPercentages[key] = rawPercent;
+      sum += Math.round(rawPercent);
     });
+    
+    const sortedKeys = Object.keys(rawPercentages).sort((a, b) => {
+      const decimalA = rawPercentages[a] - Math.floor(rawPercentages[a]);
+      const decimalB = rawPercentages[b] - Math.floor(rawPercentages[b]);
+      return decimalB - decimalA;
+    });
+    
+    Object.keys(rawPercentages).forEach(key => {
+      percentages[key] = Math.round(rawPercentages[key]);
+    });
+    
+    let currentSum = Object.values(percentages).reduce((a, b) => a + b, 0);
+    let diff = 100 - currentSum;
+    
+    for (let i = 0; i < Math.abs(diff) && i < sortedKeys.length; i++) {
+      if (diff > 0) {
+        percentages[sortedKeys[i]]++;
+      } else if (diff < 0 && percentages[sortedKeys[sortedKeys.length - 1 - i]] > 0) {
+        percentages[sortedKeys[sortedKeys.length - 1 - i]]--;
+      }
+    }
+    
     return percentages;
-  }, [counts, totalAnswered]);
+  }, [counts, answers]);
 
   const primaryType = useMemo(() => {
     const sorted = Object.keys(counts).sort((a, b) => counts[b] - counts[a]);
@@ -47,8 +83,8 @@ const UnitedNations = () => {
   }, [counts]);
 
   const progress = useMemo(() => 
-    Math.round(((currentQuestion + (answers[currentQuestion] !== null ? 1 : 0)) / questions.length) * 100), 
-    [currentQuestion, answers]
+    Math.round((currentQuestion / questions.length) * 100), 
+    [currentQuestion]
   );
 
   const showToast = useCallback((message, duration = 2200) => {
